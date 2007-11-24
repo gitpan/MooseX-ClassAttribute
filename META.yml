@@ -1,0 +1,20 @@
+---
+name: MooseX-ClassAttribute
+version: 0.01
+author:
+  - 'Dave Rolsky, C<< <autarch@urth.org> >>'
+abstract: Declare class attributes Moose-style
+license: perl
+resources:
+  license: http://dev.perl.org/licenses/
+requires:
+  Moose: 0.26
+  Test::More: 0
+provides:
+  MooseX::ClassAttribute:
+    file: lib/MooseX/ClassAttribute.pm
+    version: 0.01
+generated_by: Module::Build version 0.2808
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2

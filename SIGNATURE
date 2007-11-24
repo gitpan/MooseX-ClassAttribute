@@ -1,0 +1,36 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.55.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 a1e5c98edb9459ec42070062795f1a8a6b782970 Build.PL
+SHA1 fa9a88b55af53157c8f0dda09c59c4e0aad2341d Changes
+SHA1 fd875fbb4c76981619efb15f559ce6d208f117a1 MANIFEST
+SHA1 6c020cbc544fc513678b931c2b41ae0f4e5a1bcb META.yml
+SHA1 cd14ada78fb37a0d926edd86eddcdf7f939de582 Makefile.PL
+SHA1 a6db0bf2a90746226a9bbe15c655c3c57e3432f9 README
+SHA1 5a0049d795d2e083daeb42defbdbe02e08cc38aa lib/MooseX/ClassAttribute.pm
+SHA1 891393e2932d8bfcabfa518264bf95fe29ae9321 t/01-basic.t
+SHA1 36118394cd18350bed5c93230a7ca55fca944ff3 t/02-immutable.t
+SHA1 ec28dfac1939f1ccb1c15e00b31ce269314aadd5 t/lib/SharedTests.pm
+SHA1 98c875c39bedc57bc3c52b583ddc866c6d184d0a t/perlcritic.t
+SHA1 e728bb2392260787b4158548148c56da2c74cb89 t/pod-coverage.t
+SHA1 cec881e89926d320475f9de2b7fad02c2169f510 t/pod.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.6 (GNU/Linux)
+
+iD8DBQFHSJok3Or3ZzQuifMRAr93AJ4+coSdGg/SIFNs+pGPyvW6T2MmCgCcDrTP
+C17pttbc6Bz56sZB+UsDgUA=
+=RYJy
+-----END PGP SIGNATURE-----

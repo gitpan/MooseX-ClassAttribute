@@ -1,0 +1,76 @@
+NAME
+    MooseX::ClassAttribute - Declare class attributes Moose-style
+
+SYNOPSIS
+        package My::Class;
+
+        use Moose;
+        use MooseX::ClassAttribute;
+
+        class_has 'Cache' =>
+            ( is      => 'rw',
+              isa     => 'HashRef',
+              default => sub { {} },
+            );
+
+        __PACKAGE__->meta()->make_immutable();
+        MooseX::ClassAttribute::containing_class()->meta()->make_immutable();
+
+        no Moose;
+        no MooseX::ClassAttribute;
+
+        # then later ...
+
+        My::Class->Cache()->{thing} = ...;
+
+DESCRIPTION
+    This module allows you to declare class attributes in exactly the same
+    way as you declare object attributes, except using "class_has()" instead
+    of "has()". It is also possible to make these attributes immutable (and
+    faster) just as you can with normal Moose attributes.
+
+    You can use any feature of Moose's attribute declarations, including
+    overriding a parent's attributes, delegation ("handles"), and attribute
+    metaclasses, and it should just work.
+
+    The accessors methods for class attribute may be called on the class
+    directly, or on objects of that class. Passing a class attribute to the
+    constructor will not set it.
+
+FUNCTIONS
+    This class exports one function when you use it, "class_has()". This
+    works exactly like Moose's "has()", but it declares class attributes.
+
+    Own little nit is that if you include "no Moose" in your class, you
+    won't remove the "class_has()" function. To do that you must include "no
+    MooseX::ClassAttribute" as well.
+
+  Implementation and Immutability
+    Underneath the hood, this class creates one new class for each class
+    which has class attributes and sets up delegating methods in the class
+    for which you're creating class attributes. You don't need to worry
+    about this too much, except when it comes to making a class immutable.
+
+    Since the class attributes are not really stored in your class, you need
+    to make the containing class immutable as well as your own ...
+
+      __PACKAGE__->meta()->make_immutable();
+      MooseX::ClassAttribute::containing_class()->meta()->make_immutable();
+
+    *This may change in the future!*
+
+AUTHOR
+    Dave Rolsky, "<autarch@urth.org>"
+
+BUGS
+    Please report any bugs or feature requests to
+    "bug-moosex-classattribute@rt.cpan.org", or through the web interface at
+    <http://rt.cpan.org>. I will be notified, and then you'll automatically
+    be notified of progress on your bug as I make changes.
+
+COPYRIGHT & LICENSE
+    Copyright 2007 Dave Rolsky, All Rights Reserved.
+
+    This program is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
