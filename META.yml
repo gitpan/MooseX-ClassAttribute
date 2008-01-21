@@ -1,6 +1,6 @@
 ---
 name: MooseX-ClassAttribute
-version: 0.02
+version: 0.04
 author:
   - 'Dave Rolsky, C<< <autarch@urth.org> >>'
 abstract: Declare class attributes Moose-style
@@ -10,7 +10,7 @@ resources:
 requires:
   B: 0
   Exporter: 0
-  Moose: 0.26
+  Moose: 0.34
   Sub::Name: 0
 build_requires:
   Scalar::Util: 0
@@ -18,7 +18,7 @@ build_requires:
 provides:
   MooseX::ClassAttribute:
     file: lib/MooseX/ClassAttribute.pm
-    version: 0.02
+    version: 0.04
 generated_by: Module::Build version 0.2808
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html

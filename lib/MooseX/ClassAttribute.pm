@@ -3,13 +3,14 @@ package MooseX::ClassAttribute;
 use strict;
 use warnings;
 
-our $VERSION = '0.02';
+our $VERSION = '0.04';
 our $AUTHORITY = 'cpan:DROLSKY';
 
 our @EXPORT = 'class_has'; ## no critic ProhibitAutomaticExportation
 use base 'Exporter';
 
 use B qw( svref_2object );
+use Moose::Meta::Class;
 use Sub::Name;
 
 
@@ -17,16 +18,24 @@ sub class_has ## no critic RequireArgUnpacking
 {
     my $caller = caller();
 
+    process_class_attribute( $caller, @_ );
+
+    return;
+}
+
+sub process_class_attribute ## no critic RequireArgUnpacking
+{
+    my $caller = shift;
+
     my $caller_meta = $caller->meta();
 
     my @parents = $caller_meta->superclasses();
 
     my $container_pkg = _make_container_class( $caller, @parents );
-
-    my $has = $container_pkg->can('has');
-    $has->(@_);
-
     my $container_meta = $container_pkg->meta();
+
+    $container_meta->add_attribute(@_);
+
     for my $meth ( grep { $_ ne 'instance' } $container_meta->get_method_list() )
     {
         next if $caller_meta->has_method($meth);
@@ -56,28 +65,22 @@ sub class_has ## no critic RequireArgUnpacking
 
         my @parents = map { container_class($_) || () } @_;
 
+        push @parents, 'Moose::Object'
+            unless grep { $_->isa('Moose::Object') } @parents;
+
         my $container_pkg = 'MooseX::ClassAttribute::Container::' . $caller;
 
-        my $code = "package $container_pkg;\n";
-        $code .= "use Moose;\n\n";
+        my $instance_meth = sub {
+            no strict 'refs'; ## no critic ProhibitNoStrict
+            return ${ $container_pkg . '::Self' } ||= shift->new(@_);
+        };
 
-        if (@parents)
-        {
-            $code .= "extends qw( @parents );\n";
-        }
-
-        $code .= <<'EOF';
-
-my $Self;
-sub instance
-{
-    return $Self ||= shift->new(@_);
-}
-EOF
-
-
-        eval $code; ## no critic ProhibitStringyEval
-        die $@ if $@;
+        my $class =
+            Moose::Meta::Class->create
+                ( $container_pkg =>
+                  superclasses => \@parents,
+                  methods      => { instance => $instance_meth },
+                );
 
         return $Name{$caller} = $container_pkg;
     }
@@ -91,9 +94,9 @@ EOF
 }
 
 # This is basically copied from Moose.pm
-sub unimport ## no critic RequireFinalReturn
+sub unimport ## no critic RequireFinalReturn, RequireArgUnpacking
 {
-    my $caller = caller();
+    my $caller = Moose::_get_caller(@_);
 
     no strict 'refs'; ## no critic ProhibitNoStrict
     foreach my $name (@EXPORT)
@@ -168,9 +171,19 @@ the constructor will not set it.
 This class exports one function when you use it, C<class_has()>. This
 works exactly like Moose's C<has()>, but it declares class attributes.
 
-Own little nit is that if you include C<no Moose> in your class, you
+One little nit is that if you include C<no Moose> in your class, you
 won't remove the C<class_has()> function. To do that you must include
 C<no MooseX::ClassAttribute> as well.
+
+If you want to use this module to create class attributes in I<other>
+classes, you can call the C<process_class_attribute()> function like
+this:
+
+  MooseX::ClassAttribute::process_class_attribute( $package, ... );
+
+The first argument is the package which will have the class attribute,
+and the remaining arguments are the same as those passed to
+C<class_has()>.
 
 =head2 Implementation and Immutability
 

@@ -41,9 +41,19 @@ FUNCTIONS
     This class exports one function when you use it, "class_has()". This
     works exactly like Moose's "has()", but it declares class attributes.
 
-    Own little nit is that if you include "no Moose" in your class, you
+    One little nit is that if you include "no Moose" in your class, you
     won't remove the "class_has()" function. To do that you must include "no
     MooseX::ClassAttribute" as well.
+
+    If you want to use this module to create class attributes in *other*
+    classes, you can call the "process_class_attribute()" function like
+    this:
+
+      MooseX::ClassAttribute::process_class_attribute( $package, ... );
+
+    The first argument is the package which will have the class attribute,
+    and the remaining arguments are the same as those passed to
+    "class_has()".
 
   Implementation and Immutability
     Underneath the hood, this class creates one new class for each class
