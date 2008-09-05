@@ -3,119 +3,45 @@ package MooseX::ClassAttribute;
 use strict;
 use warnings;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 our $AUTHORITY = 'cpan:DROLSKY';
 
-our @EXPORT = 'class_has'; ## no critic ProhibitAutomaticExportation
-use base 'Exporter';
+use Moose ();
+use Moose::Exporter;
+use MooseX::ClassAttribute::Role::Meta::Class;
+use MooseX::ClassAttribute::Role::Meta::Attribute;
 
-use B qw( svref_2object );
-use Moose::Meta::Class;
-use Sub::Name;
+Moose::Exporter->setup_import_methods
+    ( with_caller => [ 'class_has' ] );
 
 
-sub class_has ## no critic RequireArgUnpacking
+sub init_meta
 {
-    my $caller = caller();
+    shift;
+    my %p = @_;
 
-    process_class_attribute( $caller, @_ );
+    Moose->init_meta(%p);
 
-    return;
+    return
+        Moose::Util::MetaRole::apply_metaclass_roles
+            ( for_class       => $p{for_class},
+              metaclass_roles => [ 'MooseX::ClassAttribute::Role::Meta::Class' ],
+            );
 }
 
-sub process_class_attribute ## no critic RequireArgUnpacking
+sub class_has
 {
-    my $caller = shift;
+    my $caller  = shift;
+    my $name    = shift;
+    my %options = @_;
 
-    my $caller_meta = $caller->meta();
+    my $attrs = ref $name eq 'ARRAY' ? $name : [$name];
 
-    my @parents = $caller_meta->superclasses();
-
-    my $container_pkg = _make_container_class( $caller, @parents );
-    my $container_meta = $container_pkg->meta();
-
-    $container_meta->add_attribute(@_);
-
-    for my $meth ( grep { $_ ne 'instance' } $container_meta->get_method_list() )
-    {
-        next if $caller_meta->has_method($meth);
-
-        my $sub = sub { shift;
-                        my $instance = $container_pkg->instance();
-                        return $instance->$meth(@_); };
-
-        $caller_meta->add_method( $meth => $sub );
-    }
-
-    return;
+    Class::MOP::Class
+            ->initialize($caller)
+            ->add_class_attribute( $_, %options )
+                for @{ $attrs };
 }
-
-{
-    # This should probably be an attribute of the metaclass, but that
-    # would require extending Moose::Meta::Class, which would conflict
-    # with anything else that wanted to do so as well (we need
-    # metaclass roles or something).
-    my %Name;
-
-    sub _make_container_class ## no critic RequireArgUnpacking
-    {
-        my $caller  = shift;
-
-        return $Name{$caller} if $Name{$caller};
-
-        my @parents = map { container_class($_) || () } @_;
-
-        push @parents, 'Moose::Object'
-            unless grep { $_->isa('Moose::Object') } @parents;
-
-        my $container_pkg = 'MooseX::ClassAttribute::Container::' . $caller;
-
-        my $instance_meth = sub {
-            no strict 'refs'; ## no critic ProhibitNoStrict
-            return ${ $container_pkg . '::Self' } ||= shift->new(@_);
-        };
-
-        my $class =
-            Moose::Meta::Class->create
-                ( $container_pkg =>
-                  superclasses => \@parents,
-                  methods      => { instance => $instance_meth },
-                );
-
-        return $Name{$caller} = $container_pkg;
-    }
-
-    sub container_class
-    {
-        my $pkg = shift || caller();
-
-        return $Name{$pkg};
-    }
-}
-
-# This is basically copied from Moose.pm
-sub unimport ## no critic RequireFinalReturn, RequireArgUnpacking
-{
-    my $caller = Moose::_get_caller(@_);
-
-    no strict 'refs'; ## no critic ProhibitNoStrict
-    foreach my $name (@EXPORT)
-    {
-        if ( defined &{ $caller . '::' . $name } )
-        {
-            my $keyword = \&{ $caller . '::' . $name };
-
-            my $pkg_name =
-                eval { svref_2object($keyword)->GV()->STASH()->NAME() };
-
-            next if $@;
-            next if $pkg_name ne __PACKAGE__;
-
-            delete ${ $caller . '::' }{$name};
-        }
-    }
-}
-
 
 1;
 
@@ -141,7 +67,6 @@ MooseX::ClassAttribute - Declare class attributes Moose-style
         );
 
     __PACKAGE__->meta()->make_immutable();
-    MooseX::ClassAttribute::containing_class()->meta()->make_immutable();
 
     no Moose;
     no MooseX::ClassAttribute;
@@ -154,15 +79,14 @@ MooseX::ClassAttribute - Declare class attributes Moose-style
 =head1 DESCRIPTION
 
 This module allows you to declare class attributes in exactly the same
-way as you declare object attributes, except using C<class_has()>
-instead of C<has()>. It is also possible to make these attributes
-immutable (and faster) just as you can with normal Moose attributes.
+way as object attributes, using C<class_has()> instead of C<has()>.
 
 You can use any feature of Moose's attribute declarations, including
 overriding a parent's attributes, delegation (C<handles>), and
-attribute metaclasses, and it should just work.
+attribute metaclasses, and it should just work. The one exception is
+the "required" flag, which is not allowed for class attributes.
 
-The accessors methods for class attribute may be called on the class
+The accessor methods for class attribute may be called on the class
 directly, or on objects of that class. Passing a class attribute to
 the constructor will not set it.
 
@@ -175,30 +99,45 @@ One little nit is that if you include C<no Moose> in your class, you
 won't remove the C<class_has()> function. To do that you must include
 C<no MooseX::ClassAttribute> as well.
 
-If you want to use this module to create class attributes in I<other>
-classes, you can call the C<process_class_attribute()> function like
-this:
-
-  MooseX::ClassAttribute::process_class_attribute( $package, ... );
-
-The first argument is the package which will have the class attribute,
-and the remaining arguments are the same as those passed to
-C<class_has()>.
-
 =head2 Implementation and Immutability
 
-Underneath the hood, this class creates one new class for each class
-which has class attributes and sets up delegating methods in the class
-for which you're creating class attributes. You don't need to worry
-about this too much, except when it comes to making a class immutable.
+This module will add a role to your class's metaclass, See
+L<MooseX::ClassAttribute::Role::Meta::Class> for details. This role
+provides introspection methods for class attributes.
 
-Since the class attributes are not really stored in your class, you
-need to make the containing class immutable as well as your own ...
+Class attributes themselves do the
+L<MooseX::ClassAttribute::Role::Meta::Attribute> role.
 
-  __PACKAGE__->meta()->make_immutable();
-  MooseX::ClassAttribute::containing_class()->meta()->make_immutable();
+There is also a L<MooseX::ClassAttribute::Meta::Method::Accessor>
+which provides part of the inlining implementation for class
+attributes.
 
-I<This may change in the future!>
+=head2 Cooperation with Metaclasses and Traits
+
+This module should work with most attribute metaclasses and traits,
+but it's possible that conflicts could occur. This module has been
+tested to work with C<MooseX::AttributeHelpers>.
+
+=head1 DONATIONS
+
+If you'd like to thank me for the work I've done on this module,
+please consider making a "donation" to me via PayPal. I spend a lot of
+free time creating free software, and would appreciate any support
+you'd care to offer.
+
+Please note that B<I am not suggesting that you must do this> in order
+for me to continue working on this particular software. I will
+continue to do so, inasmuch as I have in the past, for as long as it
+interests me.
+
+Similarly, a donation made in this way will probably not make me work
+on this software much more, unless I get so many donations that I can
+consider working on free software full time, which seems unlikely at
+best.
+
+To donate, log into PayPal and send money to autarch@urth.org or use
+the button on this page:
+L<http://www.urth.org/~autarch/fs-donation.html>
 
 =head1 AUTHOR
 
@@ -213,7 +152,7 @@ automatically be notified of progress on your bug as I make changes.
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2007 Dave Rolsky, All Rights Reserved.
+Copyright 2007-2008 Dave Rolsky, All Rights Reserved.
 
 This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

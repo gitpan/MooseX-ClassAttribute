@@ -1,6 +1,6 @@
 ---
 name: MooseX-ClassAttribute
-version: 0.04
+version: 0.05
 author:
   - 'Dave Rolsky, C<< <autarch@urth.org> >>'
 abstract: Declare class attributes Moose-style
@@ -8,17 +8,20 @@ license: perl
 resources:
   license: http://dev.perl.org/licenses/
 requires:
-  B: 0
-  Exporter: 0
-  Moose: 0.34
-  Sub::Name: 0
+  Moose: 0.57
 build_requires:
   Scalar::Util: 0
   Test::More: 0
 provides:
   MooseX::ClassAttribute:
     file: lib/MooseX/ClassAttribute.pm
-    version: 0.04
+    version: 0.05
+  MooseX::ClassAttribute::Meta::Method::Accessor:
+    file: lib/MooseX/ClassAttribute/Meta/Method/Accessor.pm
+  MooseX::ClassAttribute::Role::Meta::Attribute:
+    file: lib/MooseX/ClassAttribute/Role/Meta/Attribute.pm
+  MooseX::ClassAttribute::Role::Meta::Class:
+    file: lib/MooseX/ClassAttribute/Role/Meta/Class.pm
 generated_by: Module::Build version 0.2808
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
