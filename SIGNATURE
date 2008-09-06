@@ -15,26 +15,26 @@ not run its Makefile.PL or Build.PL.
 Hash: SHA1
 
 SHA1 9c22661e85f5ac87336bdd999cb99498ad185ee5 .shipit
-SHA1 a4e286179f46978b13f65f550ad5e7eda790d402 Build.PL
-SHA1 bdc17b033d777140afe460073da3dbd52c6d83b8 Changes
+SHA1 4ca3df1636121463ea0b7838d7207b2181ca89f7 Build.PL
+SHA1 3b2c1d58487875348f5457e1b61bac57584a9ebc Changes
 SHA1 ed8bab0daab5660b0221af9d7632a718b5b7c820 MANIFEST
-SHA1 bbbfa9dd02ab6db0833f4c94c628d450f530db2c META.yml
+SHA1 152a3973d6d42dc6c13a4b2e9699e9f40a51f302 META.yml
 SHA1 cd14ada78fb37a0d926edd86eddcdf7f939de582 Makefile.PL
 SHA1 841328969231aa737bddeabaf65d2f0bca6648f6 README
-SHA1 990025e1f50689e75f54a36f4f6cb147c5ce78f5 lib/MooseX/ClassAttribute.pm
+SHA1 b48a15af03070c38f31db6d1ab2222ba11eb6dff lib/MooseX/ClassAttribute.pm
 SHA1 84152cd82862fd8d6799331a7154a4f6847f568d lib/MooseX/ClassAttribute/Meta/Method/Accessor.pm
 SHA1 ae3c07a1db7b4acd518822cc80ac9c9aaa0596a3 lib/MooseX/ClassAttribute/Role/Meta/Attribute.pm
 SHA1 d2b0d707f0d2bf1727fe386324ee42659205fe32 lib/MooseX/ClassAttribute/Role/Meta/Class.pm
 SHA1 891393e2932d8bfcabfa518264bf95fe29ae9321 t/01-basic.t
 SHA1 16f8aeb16d9e527cec8010fda1e881c02fc2fafc t/02-immutable.t
-SHA1 248377750558714d73fe09dd03ceef06e87b034a t/03-introspection.t
-SHA1 2a4d49d53e7cf7424fa2020c5459b04815783ace t/lib/SharedTests.pm
+SHA1 1408a41fe720717b8c9fbb358e6b689da20811a7 t/03-introspection.t
+SHA1 85959da67b8cc144543d1611b6e64d723fe509e4 t/lib/SharedTests.pm
 SHA1 b5bcc44b1bdf93fde3e10e4e53dad0fb46967840 t/pod-coverage.t
 SHA1 cec881e89926d320475f9de2b7fad02c2169f510 t/pod.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.6 (GNU/Linux)
 
-iD8DBQFIwU1w3Or3ZzQuifMRAu5XAJ9mBA1Fdy4z/POIIBAw9LEK2b6vOgCgyjzs
-1jvInk8JTNemqHQLK5cXDlI=
-=KkIf
+iD8DBQFIwoi23Or3ZzQuifMRAhhjAKDAa37SWbPaXIptTw3iD3uKSLmhPgCfbfS6
+0e5vKxFBjNUnsq6NYLWUies=
+=cOvC
 -----END PGP SIGNATURE-----
