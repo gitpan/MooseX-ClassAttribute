@@ -12,6 +12,7 @@ README
 t/01-basic.t
 t/02-immutable.t
 t/03-introspection.t
+t/04-with-attribute-helpers.t
 t/lib/SharedTests.pm
 t/pod-coverage.t
 t/pod.t

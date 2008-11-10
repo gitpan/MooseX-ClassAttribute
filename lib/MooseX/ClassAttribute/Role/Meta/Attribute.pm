@@ -59,11 +59,11 @@ sub _initialize
 
     if ( $self->has_default() )
     {
-        $self->set_value( $self->default() );
+        $self->set_value( undef, $self->default() );
     }
     elsif ( $self->has_builder() )
     {
-        $self->set_value( $self->_call_builder() );
+        $self->set_value( undef, $self->_call_builder() );
     }
 }
 
@@ -103,8 +103,9 @@ around '_call_builder' => sub
 around 'set_value' => sub
 {
     shift;
-    my $self  = shift;
-    my $value = shift;
+    my $self     = shift;
+    shift; # ignoring instance or class name
+    my $value    = shift;
 
     $self->associated_class()->set_class_attribute_value( $self->name() => $value );
 };
