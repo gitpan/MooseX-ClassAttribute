@@ -24,10 +24,10 @@ SYNOPSIS
 
 DESCRIPTION
     This module allows you to declare class attributes in exactly the same
-    way as object attributes, using "class_has()" instead of "has()".
+    way as object attributes, using `class_has()' instead of `has()'.
 
     You can use any feature of Moose's attribute declarations, including
-    overriding a parent's attributes, delegation ("handles"), and attribute
+    overriding a parent's attributes, delegation (`handles'), and attribute
     metaclasses, and it should just work. The one exception is the
     "required" flag, which is not allowed for class attributes.
 
@@ -36,14 +36,15 @@ DESCRIPTION
     constructor will not set it.
 
 FUNCTIONS
-    This class exports one function when you use it, "class_has()". This
-    works exactly like Moose's "has()", but it declares class attributes.
+    This class exports one function when you use it, `class_has()'. This
+    works exactly like Moose's `has()', but it declares class attributes.
 
-    One little nit is that if you include "no Moose" in your class, you
-    won't remove the "class_has()" function. To do that you must include "no
-    MooseX::ClassAttribute" as well.
+    One little nit is that if you include `no Moose' in your class, you
+    won't remove the `class_has()' function. To do that you must include `no
+    MooseX::ClassAttribute' as well.
 
   Implementation and Immutability
+
     This module will add a role to your class's metaclass, See
     MooseX::ClassAttribute::Role::Meta::Class for details. This role
     provides introspection methods for class attributes.
@@ -55,9 +56,10 @@ FUNCTIONS
     provides part of the inlining implementation for class attributes.
 
   Cooperation with Metaclasses and Traits
+
     This module should work with most attribute metaclasses and traits, but
     it's possible that conflicts could occur. This module has been tested to
-    work with "MooseX::AttributeHelpers".
+    work with `MooseX::AttributeHelpers'.
 
 DONATIONS
     If you'd like to thank me for the work I've done on this module, please
@@ -75,16 +77,16 @@ DONATIONS
     best.
 
     To donate, log into PayPal and send money to autarch@urth.org or use the
-    button on this page: <http://www.urth.org/~autarch/fs-donation.html>
+    button on this page: http://www.urth.org/~autarch/fs-donation.html
 
 AUTHOR
-    Dave Rolsky, "<autarch@urth.org>"
+    Dave Rolsky, `<autarch@urth.org>'
 
 BUGS
     Please report any bugs or feature requests to
-    "bug-moosex-classattribute@rt.cpan.org", or through the web interface at
-    <http://rt.cpan.org>. I will be notified, and then you'll automatically
-    be notified of progress on your bug as I make changes.
+    `bug-moosex-classattribute@rt.cpan.org', or through the web interface at
+    http://rt.cpan.org. I will be notified, and then you'll automatically be
+    notified of progress on your bug as I make changes.
 
 COPYRIGHT & LICENSE
     Copyright 2007-2008 Dave Rolsky, All Rights Reserved.

@@ -3,13 +3,12 @@ package MooseX::ClassAttribute;
 use strict;
 use warnings;
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 our $AUTHORITY = 'cpan:DROLSKY';
 
-use Moose ();
+use Moose 0.74 ();
 use Moose::Exporter;
 use MooseX::ClassAttribute::Role::Meta::Class;
-use MooseX::ClassAttribute::Role::Meta::Attribute;
 
 Moose::Exporter->setup_import_methods
     ( with_caller => [ 'class_has' ] );
@@ -38,9 +37,9 @@ sub class_has
     my $attrs = ref $name eq 'ARRAY' ? $name : [$name];
 
     Class::MOP::Class
-            ->initialize($caller)
-            ->add_class_attribute( $_, %options )
-                for @{ $attrs };
+        ->initialize($caller)
+        ->add_class_attribute( $_, %options )
+            for @{ $attrs };
 }
 
 1;

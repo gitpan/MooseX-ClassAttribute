@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 use MooseX::AttributeHelpers;
+use MooseX::ClassAttribute::Role::Meta::Attribute;
 use Scalar::Util qw( blessed );
 
 use Moose::Role;
@@ -140,11 +141,6 @@ sub remove_class_attribute
 
 sub get_all_class_attributes
 {
-    shift->compute_all_applicable_class_attributes(@_);
-}
-
-sub compute_all_applicable_class_attributes
-{
     my $self = shift;
 
     my %attrs =
@@ -156,6 +152,14 @@ sub compute_all_applicable_class_attributes
         reverse $self->linearized_isa;
 
     return values %attrs;
+}
+
+sub compute_all_applicable_class_attributes
+{
+    warn 'The compute_all_applicable_class_attributes method has been deprecated.'
+        . " Use get_all_class_attributes instead.\n";
+
+    shift->compute_all_applicable_class_attributes(@_);
 }
 
 sub find_class_attribute_by_name
@@ -194,7 +198,7 @@ sub inline_class_slot_access
     my $self = shift;
     my $name = shift;
 
-    return '$' . $self->_class_attribute_var_name . '{' . $name . '}';
+    return '$' . $self->_class_attribute_var_name . '{"' . quotemeta($name) . '"}';
 }
 
 sub inline_get_class_slot_value
@@ -291,9 +295,7 @@ along with its accessor methods.
 
 =head2 $meta->get_all_class_attributes()
 
-=head2 $meta->compute_all_applicable_class_attributes()
-
-These methods return a list of attribute objects for the class and all
+This method returns a list of attribute objects for the class and all
 its parent classes.
 
 =head2 $meta->find_class_attribute_by_name($name)

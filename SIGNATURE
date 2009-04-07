@@ -15,27 +15,27 @@ not run its Makefile.PL or Build.PL.
 Hash: SHA1
 
 SHA1 9c22661e85f5ac87336bdd999cb99498ad185ee5 .shipit
-SHA1 4ca3df1636121463ea0b7838d7207b2181ca89f7 Build.PL
-SHA1 eadd6226c326e0f77591c8e71bcbf62029925d32 Changes
+SHA1 9f6071dc1bc78993f6071d67c330fd083cc78443 Build.PL
+SHA1 1fd69b29166f63d0563a1fa81bb9ccc76733751f Changes
 SHA1 31936439f5a17ff0999ffc303a21ed38923b7ca8 MANIFEST
-SHA1 d559bae7c68fe4028fda723fb0d3563c38009204 META.yml
-SHA1 6f92f99db464ab415b16ffb13b2fbc67c69cab56 Makefile.PL
-SHA1 841328969231aa737bddeabaf65d2f0bca6648f6 README
-SHA1 4d0f423279d1b744c6a610d73c598e15664804b2 lib/MooseX/ClassAttribute.pm
-SHA1 84152cd82862fd8d6799331a7154a4f6847f568d lib/MooseX/ClassAttribute/Meta/Method/Accessor.pm
+SHA1 456605d8dd6692e86fc78d80532fea32ba70781c META.yml
+SHA1 319790c23e8ec93773a072982ab6a2f366ada3a1 Makefile.PL
+SHA1 788fd01f8a64fd66456ae645efae2f3c6e4f6237 README
+SHA1 7f009d42fe1a2e39806d879ff2fbce81e1f911be lib/MooseX/ClassAttribute.pm
+SHA1 b637ed75e19e4fcf44d2bbfb543b0bd2b97c93de lib/MooseX/ClassAttribute/Meta/Method/Accessor.pm
 SHA1 c0640e1726095cb9752f0cec19b3136802502100 lib/MooseX/ClassAttribute/Role/Meta/Attribute.pm
-SHA1 d2b0d707f0d2bf1727fe386324ee42659205fe32 lib/MooseX/ClassAttribute/Role/Meta/Class.pm
+SHA1 66e379bcd3d8dd53ce8c4fecb2c9391125a7b6dc lib/MooseX/ClassAttribute/Role/Meta/Class.pm
 SHA1 891393e2932d8bfcabfa518264bf95fe29ae9321 t/01-basic.t
 SHA1 16f8aeb16d9e527cec8010fda1e881c02fc2fafc t/02-immutable.t
 SHA1 1408a41fe720717b8c9fbb358e6b689da20811a7 t/03-introspection.t
 SHA1 d4e8b7e0ad16aa689b799b8d22e7d0266975c8b2 t/04-with-attribute-helpers.t
 SHA1 85959da67b8cc144543d1611b6e64d723fe509e4 t/lib/SharedTests.pm
-SHA1 b5bcc44b1bdf93fde3e10e4e53dad0fb46967840 t/pod-coverage.t
+SHA1 335894f5c61524d391f58593f169319034157eec t/pod-coverage.t
 SHA1 cec881e89926d320475f9de2b7fad02c2169f510 t/pod.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.9 (GNU/Linux)
 
-iEYEARECAAYFAkkYxxgACgkQ3Or3ZzQuifP3UACfWjGJH13lvvN/98+9Co5Ecw5C
-6SEAn1TUUvGFZkZzfPSZdEMeQXErkVe/
-=9crf
+iEUEARECAAYFAknbezwACgkQ3Or3ZzQuifNOEwCdGtq+nfbwiqZnjGBzoHSErSqA
+ugIAl1Jqp4rFW71eyIXjIZKZ2/NSMU0=
+=NaaK
 -----END PGP SIGNATURE-----
