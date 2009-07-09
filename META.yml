@@ -1,6 +1,6 @@
 ---
 name: MooseX-ClassAttribute
-version: 0.08
+version: 0.09
 author:
   - 'Dave Rolsky, C<< <autarch@urth.org> >>'
 abstract: Declare class attributes Moose-style
@@ -16,14 +16,14 @@ build_requires:
 provides:
   MooseX::ClassAttribute:
     file: lib/MooseX/ClassAttribute.pm
-    version: 0.08
+    version: 0.09
   MooseX::ClassAttribute::Meta::Method::Accessor:
     file: lib/MooseX/ClassAttribute/Meta/Method/Accessor.pm
   MooseX::ClassAttribute::Role::Meta::Attribute:
     file: lib/MooseX/ClassAttribute/Role/Meta/Attribute.pm
   MooseX::ClassAttribute::Role::Meta::Class:
     file: lib/MooseX/ClassAttribute/Role/Meta/Class.pm
-generated_by: Module::Build version 0.32
+generated_by: Module::Build version 0.280801
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
   version: 1.2

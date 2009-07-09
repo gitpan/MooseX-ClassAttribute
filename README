@@ -44,7 +44,6 @@ FUNCTIONS
     MooseX::ClassAttribute' as well.
 
   Implementation and Immutability
-
     This module will add a role to your class's metaclass, See
     MooseX::ClassAttribute::Role::Meta::Class for details. This role
     provides introspection methods for class attributes.
@@ -56,7 +55,6 @@ FUNCTIONS
     provides part of the inlining implementation for class attributes.
 
   Cooperation with Metaclasses and Traits
-
     This module should work with most attribute metaclasses and traits, but
     it's possible that conflicts could occur. This module has been tested to
     work with `MooseX::AttributeHelpers'.

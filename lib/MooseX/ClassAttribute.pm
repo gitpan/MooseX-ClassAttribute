@@ -3,7 +3,7 @@ package MooseX::ClassAttribute;
 use strict;
 use warnings;
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 our $AUTHORITY = 'cpan:DROLSKY';
 
 use Moose 0.74 ();
@@ -36,8 +36,7 @@ sub class_has
 
     my $attrs = ref $name eq 'ARRAY' ? $name : [$name];
 
-    Class::MOP::Class
-        ->initialize($caller)
+    Class::MOP::class_of($caller)
         ->add_class_attribute( $_, %options )
             for @{ $attrs };
 }

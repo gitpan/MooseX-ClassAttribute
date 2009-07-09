@@ -14,28 +14,27 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 9c22661e85f5ac87336bdd999cb99498ad185ee5 .shipit
 SHA1 9f6071dc1bc78993f6071d67c330fd083cc78443 Build.PL
-SHA1 1fd69b29166f63d0563a1fa81bb9ccc76733751f Changes
-SHA1 31936439f5a17ff0999ffc303a21ed38923b7ca8 MANIFEST
-SHA1 456605d8dd6692e86fc78d80532fea32ba70781c META.yml
-SHA1 319790c23e8ec93773a072982ab6a2f366ada3a1 Makefile.PL
-SHA1 788fd01f8a64fd66456ae645efae2f3c6e4f6237 README
-SHA1 7f009d42fe1a2e39806d879ff2fbce81e1f911be lib/MooseX/ClassAttribute.pm
+SHA1 39d503d50af7257afccb4cc273210b94cc61856b Changes
+SHA1 200006aa4028f852cd5d5491d07e22346f32422d MANIFEST
+SHA1 2d69d932d4f6bccca1262649b4d83db3c6a023a5 META.yml
+SHA1 f44a610f611cc4333f9a9b52873bc5a35fb7ffb3 Makefile.PL
+SHA1 656336e5cd9d32e67dd887b2d6794b6fb22896d8 README
+SHA1 26e9769cb3bf7408f3d003dd38ad4ef01adcb1fb lib/MooseX/ClassAttribute.pm
 SHA1 b637ed75e19e4fcf44d2bbfb543b0bd2b97c93de lib/MooseX/ClassAttribute/Meta/Method/Accessor.pm
-SHA1 c0640e1726095cb9752f0cec19b3136802502100 lib/MooseX/ClassAttribute/Role/Meta/Attribute.pm
-SHA1 66e379bcd3d8dd53ce8c4fecb2c9391125a7b6dc lib/MooseX/ClassAttribute/Role/Meta/Class.pm
+SHA1 6ade79eee8725f26f4295778dd726a142c2d3e3b lib/MooseX/ClassAttribute/Role/Meta/Attribute.pm
+SHA1 a6d7237fdc672bdadff5effcce01f4ea5cde0cce lib/MooseX/ClassAttribute/Role/Meta/Class.pm
 SHA1 891393e2932d8bfcabfa518264bf95fe29ae9321 t/01-basic.t
 SHA1 16f8aeb16d9e527cec8010fda1e881c02fc2fafc t/02-immutable.t
-SHA1 1408a41fe720717b8c9fbb358e6b689da20811a7 t/03-introspection.t
+SHA1 1b0085ca234f667ba3b11ce386f74129063f06b1 t/03-introspection.t
 SHA1 d4e8b7e0ad16aa689b799b8d22e7d0266975c8b2 t/04-with-attribute-helpers.t
-SHA1 85959da67b8cc144543d1611b6e64d723fe509e4 t/lib/SharedTests.pm
-SHA1 335894f5c61524d391f58593f169319034157eec t/pod-coverage.t
-SHA1 cec881e89926d320475f9de2b7fad02c2169f510 t/pod.t
+SHA1 97fc64af3c4eb09451c5306ba72344b34a323f5d t/lib/SharedTests.pm
+SHA1 8fe371b6f3bacaf4cbd283863a7d39e6d79ccd58 t/pod-coverage.t
+SHA1 d1ff551e8c5994f38860cbc8b16103139e307996 t/pod.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.9 (GNU/Linux)
 
-iEUEARECAAYFAknbezwACgkQ3Or3ZzQuifNOEwCdGtq+nfbwiqZnjGBzoHSErSqA
-ugIAl1Jqp4rFW71eyIXjIZKZ2/NSMU0=
-=NaaK
+iEYEARECAAYFAkpWX3YACgkQIgMCsV8qvRK6oQCfU8FEoSHBIjqc4T1HEndsbqmZ
+glgAnj2JuqwBzq/ViDFS/IfrEvyIbvrr
+=RSjf
 -----END PGP SIGNATURE-----
