@@ -14,27 +14,27 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 9f6071dc1bc78993f6071d67c330fd083cc78443 Build.PL
-SHA1 39d503d50af7257afccb4cc273210b94cc61856b Changes
+SHA1 8bd6786df8ae21add5d0371a5312850b6751b88c Build.PL
+SHA1 0e9bed8da5d73146b3f59b1a5ee334662304568d Changes
 SHA1 200006aa4028f852cd5d5491d07e22346f32422d MANIFEST
-SHA1 2d69d932d4f6bccca1262649b4d83db3c6a023a5 META.yml
-SHA1 f44a610f611cc4333f9a9b52873bc5a35fb7ffb3 Makefile.PL
+SHA1 e621a6ae94b608081bb05329e068b34a55d50a2f META.yml
+SHA1 777f809e64b3b927a8e3a8400d51f9ba040a13e4 Makefile.PL
 SHA1 656336e5cd9d32e67dd887b2d6794b6fb22896d8 README
-SHA1 26e9769cb3bf7408f3d003dd38ad4ef01adcb1fb lib/MooseX/ClassAttribute.pm
-SHA1 b637ed75e19e4fcf44d2bbfb543b0bd2b97c93de lib/MooseX/ClassAttribute/Meta/Method/Accessor.pm
+SHA1 54cf4b066b079291a1f78765bcc73f0a93303b46 lib/MooseX/ClassAttribute.pm
+SHA1 d95453b06f64922c0c37879073231f5627810de0 lib/MooseX/ClassAttribute/Meta/Method/Accessor.pm
 SHA1 6ade79eee8725f26f4295778dd726a142c2d3e3b lib/MooseX/ClassAttribute/Role/Meta/Attribute.pm
 SHA1 a6d7237fdc672bdadff5effcce01f4ea5cde0cce lib/MooseX/ClassAttribute/Role/Meta/Class.pm
 SHA1 891393e2932d8bfcabfa518264bf95fe29ae9321 t/01-basic.t
 SHA1 16f8aeb16d9e527cec8010fda1e881c02fc2fafc t/02-immutable.t
-SHA1 1b0085ca234f667ba3b11ce386f74129063f06b1 t/03-introspection.t
+SHA1 61668b7541465f3c70d87e9011ff790ee594ff5f t/03-introspection.t
 SHA1 d4e8b7e0ad16aa689b799b8d22e7d0266975c8b2 t/04-with-attribute-helpers.t
-SHA1 97fc64af3c4eb09451c5306ba72344b34a323f5d t/lib/SharedTests.pm
+SHA1 b1b480100dc24a7f6fc4b4e1b6019423845e97f2 t/lib/SharedTests.pm
 SHA1 8fe371b6f3bacaf4cbd283863a7d39e6d79ccd58 t/pod-coverage.t
 SHA1 d1ff551e8c5994f38860cbc8b16103139e307996 t/pod.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.9 (GNU/Linux)
 
-iEYEARECAAYFAkpWX3YACgkQIgMCsV8qvRK6oQCfU8FEoSHBIjqc4T1HEndsbqmZ
-glgAnj2JuqwBzq/ViDFS/IfrEvyIbvrr
-=RSjf
+iEYEARECAAYFAkqVreIACgkQIgMCsV8qvRKwJACfXs4xDOogrvLYkKHIp1vragrc
+fA0An0iZ882xNQ//LsA6UCTdqSnXenrQ
+=dbiw
 -----END PGP SIGNATURE-----
