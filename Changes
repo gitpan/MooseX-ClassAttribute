@@ -1,3 +1,16 @@
+0.11   2010-02-09
+
+- Roles can now have class attributes, which will be fully initialized when
+  the role is applied to a class.
+
+- Many modules have been renamed from MooseX::ClassAttribute::Role::Meta::* to
+  MooseX::ClassAttribute::Trait::*.
+
+- Deprecated the get_class_attribute_map method.
+
+- Added a version number to every .pm file.
+
+
 0.10   2009-08-26
 
 - Fixed to make triggers work with Moose 0.89+, and made triggers pass the old

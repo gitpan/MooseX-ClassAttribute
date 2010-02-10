@@ -27,13 +27,13 @@ DESCRIPTION
     way as object attributes, using `class_has()' instead of `has()'.
 
     You can use any feature of Moose's attribute declarations, including
-    overriding a parent's attributes, delegation (`handles'), and attribute
-    metaclasses, and it should just work. The one exception is the
+    overriding a parent's attributes, delegation (`handles'), attribute
+    traits, etc. All features should just work. The one exception is the
     "required" flag, which is not allowed for class attributes.
 
     The accessor methods for class attribute may be called on the class
     directly, or on objects of that class. Passing a class attribute to the
-    constructor will not set it.
+    constructor will not set that attribute.
 
 FUNCTIONS
     This class exports one function when you use it, `class_has()'. This
@@ -41,15 +41,16 @@ FUNCTIONS
 
     One little nit is that if you include `no Moose' in your class, you
     won't remove the `class_has()' function. To do that you must include `no
-    MooseX::ClassAttribute' as well.
+    MooseX::ClassAttribute' as well. Or you can just use
+    namespace::autoclean instead.
 
   Implementation and Immutability
     This module will add a role to your class's metaclass, See
-    MooseX::ClassAttribute::Role::Meta::Class for details. This role
-    provides introspection methods for class attributes.
+    MooseX::ClassAttribute::Trait::Class for details. This role provides
+    introspection methods for class attributes.
 
     Class attributes themselves do the
-    MooseX::ClassAttribute::Role::Meta::Attribute role.
+    MooseX::ClassAttribute::Trait::Attribute role.
 
     There is also a MooseX::ClassAttribute::Meta::Method::Accessor which
     provides part of the inlining implementation for class attributes.
@@ -57,7 +58,13 @@ FUNCTIONS
   Cooperation with Metaclasses and Traits
     This module should work with most attribute metaclasses and traits, but
     it's possible that conflicts could occur. This module has been tested to
-    work with `MooseX::AttributeHelpers'.
+    work with Moose's native traits.
+
+  Class Attributes in Roles
+    You can add a class attribute to a role. When that role is applied to a
+    class, the class will have the relevant class attributes added. Note
+    that attribute defaults will be calculated when the class attribute is
+    composed into the class.
 
 DONATIONS
     If you'd like to thank me for the work I've done on this module, please
@@ -87,7 +94,7 @@ BUGS
     notified of progress on your bug as I make changes.
 
 COPYRIGHT & LICENSE
-    Copyright 2007-2008 Dave Rolsky, All Rights Reserved.
+    Copyright 2007-2010 Dave Rolsky, All Rights Reserved.
 
     This program is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.

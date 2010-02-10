@@ -1,31 +1,55 @@
 ---
-name: MooseX-ClassAttribute
-version: 0.10
+abstract: 'Declare class attributes Moose-style'
 author:
   - 'Dave Rolsky, C<< <autarch@urth.org> >>'
-abstract: Declare class attributes Moose-style
-license: perl
-resources:
-  license: http://dev.perl.org/licenses/
 build_requires:
   Scalar::Util: 0
-  Test::More: 0
-requires:
-  Moose: 0.89
-  MooseX::AttributeHelpers: 0.13
+  Test::More: 0.88
 configure_requires:
-  Module::Build: 0.340201
-provides:
-  MooseX::ClassAttribute:
-    file: lib/MooseX/ClassAttribute.pm
-    version: 0.10
-  MooseX::ClassAttribute::Meta::Method::Accessor:
-    file: lib/MooseX/ClassAttribute/Meta/Method/Accessor.pm
-  MooseX::ClassAttribute::Role::Meta::Attribute:
-    file: lib/MooseX/ClassAttribute/Role/Meta/Attribute.pm
-  MooseX::ClassAttribute::Role::Meta::Class:
-    file: lib/MooseX/ClassAttribute/Role/Meta/Class.pm
-generated_by: Module::Build version 0.340201
+  Module::Build: 0.36
+generated_by: 'Module::Build version 0.3603'
+license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
+name: MooseX-ClassAttribute
+provides:
+  MooseX::ClassAttribute:
+    file: lib/MooseX/ClassAttribute.pm
+    version: 0.11
+  MooseX::ClassAttribute::Meta::Method::Accessor:
+    file: lib/MooseX/ClassAttribute/Meta/Method/Accessor.pm
+    version: 0.11
+  MooseX::ClassAttribute::Meta::Role::Attribute:
+    file: lib/MooseX/ClassAttribute/Meta/Role/Attribute.pm
+    version: 0.11
+  MooseX::ClassAttribute::Trait::Application:
+    file: lib/MooseX/ClassAttribute/Trait/Application.pm
+    version: 0.11
+  MooseX::ClassAttribute::Trait::Application::ToClass:
+    file: lib/MooseX/ClassAttribute/Trait/Application/ToClass.pm
+    version: 0.11
+  MooseX::ClassAttribute::Trait::Application::ToInstance:
+    file: lib/MooseX/ClassAttribute/Trait/Application/ToInstance.pm
+    version: 0.11
+  MooseX::ClassAttribute::Trait::Application::ToRole:
+    file: lib/MooseX/ClassAttribute/Trait/Application/ToRole.pm
+    version: 0.11
+  MooseX::ClassAttribute::Trait::Attribute:
+    file: lib/MooseX/ClassAttribute/Trait/Attribute.pm
+    version: 0.11
+  MooseX::ClassAttribute::Trait::Class:
+    file: lib/MooseX/ClassAttribute/Trait/Class.pm
+    version: 0.11
+  MooseX::ClassAttribute::Trait::Mixin::HasClassAttributes:
+    file: lib/MooseX/ClassAttribute/Trait/Mixin/HasClassAttributes.pm
+    version: 0.11
+  MooseX::ClassAttribute::Trait::Role:
+    file: lib/MooseX/ClassAttribute/Trait/Role.pm
+    version: 0.11
+requires:
+  Moose: 0.97
+  namespace::autoclean: 0
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.11
