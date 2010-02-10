@@ -3,16 +3,15 @@ package MooseX::ClassAttribute;
 use strict;
 use warnings;
 
-our $VERSION   = '0.11';
+our $VERSION   = '0.12';
 our $AUTHORITY = 'cpan:DROLSKY';
 
-use Moose 0.97 ();
+use Moose 0.98 ();
 use Moose::Exporter;
 use MooseX::ClassAttribute::Trait::Class;
 use MooseX::ClassAttribute::Trait::Role;
 use MooseX::ClassAttribute::Trait::Application::ToClass;
 use MooseX::ClassAttribute::Trait::Application::ToRole;
-use MooseX::ClassAttribute::Trait::Application::ToInstance;
 
 Moose::Exporter->setup_import_methods( with_meta => ['class_has'] );
 
@@ -31,9 +30,6 @@ sub init_meta {
                 ['MooseX::ClassAttribute::Trait::Application::ToClass'],
             application_to_role =>
                 ['MooseX::ClassAttribute::Trait::Application::ToRole'],
-            application_to_instance => [
-                'MooseX::ClassAttribute::Trait::Application::ToInstance'
-            ],
         },
     );
 }

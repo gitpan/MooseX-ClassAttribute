@@ -5,7 +5,7 @@ WriteMakefile
           'NAME' => 'MooseX::ClassAttribute',
           'VERSION_FROM' => 'lib/MooseX/ClassAttribute.pm',
           'PREREQ_PM' => {
-                           'Moose' => '0.97',
+                           'Moose' => '0.98',
                            'Scalar::Util' => 0,
                            'Test::More' => '0.88',
                            'namespace::autoclean' => '0'

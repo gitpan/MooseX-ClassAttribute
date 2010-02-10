@@ -14,23 +14,22 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 5ce4c51fc3576905f41a46971319712dffeb9c95 Build.PL
-SHA1 537f1b489eb0185a0e4b2f09a34758528b192ae7 Changes
-SHA1 534424ec7a1cd8b70eabc3b43f3c1dd00b7b293c MANIFEST
-SHA1 8202a224ee2d40ff337daa39bc57fbfa6359dbc3 META.yml
-SHA1 436add2ac92640a7307f81ba39182401ff3cd027 Makefile.PL
+SHA1 d467b6f4add10bb9a3b31d3d10bc74f07503b251 Build.PL
+SHA1 8977889ade3c155e6662eb9cf5ca342ad7940bfe Changes
+SHA1 dcec4a51ebc220f69d10150a56ef7b154085e78a MANIFEST
+SHA1 20577890d992cd6207fc58a9cc0788818bf5a78f META.yml
+SHA1 3222155f11b61c0c8284f89b84cfb3424f323f26 Makefile.PL
 SHA1 116d359500e960b688ca80486738c8b1970c04f6 README
-SHA1 d9ebadf057ceb3dde16117a43e2f890519ef39d0 lib/MooseX/ClassAttribute.pm
-SHA1 ed991cb1aa7de551a78c10e41d616e9ca59911e7 lib/MooseX/ClassAttribute/Meta/Method/Accessor.pm
-SHA1 ccc8cff73203ce4ee3b0537fdf7945de32ae08e2 lib/MooseX/ClassAttribute/Meta/Role/Attribute.pm
-SHA1 31aa148c8f0faaa5b8a010150b63de94513247a1 lib/MooseX/ClassAttribute/Trait/Application.pm
-SHA1 8b570160b2fa2e75e19e9984b2717b4999b9e382 lib/MooseX/ClassAttribute/Trait/Application/ToClass.pm
-SHA1 3026607acaf05a1abefcfdfc41b70f832ce7240f lib/MooseX/ClassAttribute/Trait/Application/ToInstance.pm
-SHA1 fe29182101063674f1a27c8234d09b02c357fe5e lib/MooseX/ClassAttribute/Trait/Application/ToRole.pm
-SHA1 a29e3a921e09ec74587f1215cac88decb232a1c3 lib/MooseX/ClassAttribute/Trait/Attribute.pm
-SHA1 dbbc0801fd91447802574ca7c774076e4b18ab0f lib/MooseX/ClassAttribute/Trait/Class.pm
-SHA1 4462d57a82b6de2466299831b7e61f8702c69916 lib/MooseX/ClassAttribute/Trait/Mixin/HasClassAttributes.pm
-SHA1 5735feca32573e4f54e8a0411cdd9744541e9a64 lib/MooseX/ClassAttribute/Trait/Role.pm
+SHA1 2bb70d8910cde70ea7472cbac7ca78e526a70f78 lib/MooseX/ClassAttribute.pm
+SHA1 925117e278cb67a7e2a5e7c3682460c1a5281e1a lib/MooseX/ClassAttribute/Meta/Method/Accessor.pm
+SHA1 a410a50b0231245af7b5fa490fd2592c5f646612 lib/MooseX/ClassAttribute/Meta/Role/Attribute.pm
+SHA1 8b5a11557e04c5b3a9dcfbc971b252b9ce9349b4 lib/MooseX/ClassAttribute/Trait/Application.pm
+SHA1 d2eca147cd6e9e4b92456f1e7d9c5e9b7f049c82 lib/MooseX/ClassAttribute/Trait/Application/ToClass.pm
+SHA1 26752dca1faf15fed37636ca0b54365854817366 lib/MooseX/ClassAttribute/Trait/Application/ToRole.pm
+SHA1 96fc1e9c8ebca971a7c68027032f4dceed1f93fc lib/MooseX/ClassAttribute/Trait/Attribute.pm
+SHA1 df8f2a7dca322281c3ac2b810609daa2e907cc03 lib/MooseX/ClassAttribute/Trait/Class.pm
+SHA1 48c2861fbd4d4273b2c932b1be3c8f54b00c18fd lib/MooseX/ClassAttribute/Trait/Mixin/HasClassAttributes.pm
+SHA1 9930bfbcc33e946bbaee6e38fa8e7c09445aaac8 lib/MooseX/ClassAttribute/Trait/Role.pm
 SHA1 638402c597ff7c41355b3ea814db19f30275b8de t/01-basic.t
 SHA1 d0704e6a6f5c1299179d9c848196d05af53a4b0a t/02-immutable.t
 SHA1 0337e7293738c7158ec0877737df65879e73dcd4 t/03-introspection.t
@@ -46,7 +45,7 @@ SHA1 524345f1d17a4dfc5ef1427ce2e724f983cac34a xt/version-numbers.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.9 (GNU/Linux)
 
-iEYEARECAAYFAktyAWwACgkQIgMCsV8qvRIl2ACfXiiL6h5EbjT+EHNMVm4+oqJ7
-8ZoAoIVc8iFvVkAPm0o8Gh6EAaLFu604
-=nB4H
+iEYEARECAAYFAktzJIgACgkQIgMCsV8qvRKplwCgjUzZNwplRkMjlsZoYmOR1EgM
+8QAAoIqFM59QfFoaF5oDeGPHhxN8YHF0
+=ZB0F
 -----END PGP SIGNATURE-----

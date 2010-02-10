@@ -5,7 +5,6 @@ lib/MooseX/ClassAttribute/Meta/Method/Accessor.pm
 lib/MooseX/ClassAttribute/Meta/Role/Attribute.pm
 lib/MooseX/ClassAttribute/Trait/Application.pm
 lib/MooseX/ClassAttribute/Trait/Application/ToClass.pm
-lib/MooseX/ClassAttribute/Trait/Application/ToInstance.pm
 lib/MooseX/ClassAttribute/Trait/Application/ToRole.pm
 lib/MooseX/ClassAttribute/Trait/Attribute.pm
 lib/MooseX/ClassAttribute/Trait/Class.pm
