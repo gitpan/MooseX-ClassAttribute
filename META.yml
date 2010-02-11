@@ -16,37 +16,37 @@ name: MooseX-ClassAttribute
 provides:
   MooseX::ClassAttribute:
     file: lib/MooseX/ClassAttribute.pm
-    version: 0.12
+    version: 0.13
   MooseX::ClassAttribute::Meta::Method::Accessor:
     file: lib/MooseX/ClassAttribute/Meta/Method/Accessor.pm
-    version: 0.12
+    version: 0.13
   MooseX::ClassAttribute::Meta::Role::Attribute:
     file: lib/MooseX/ClassAttribute/Meta/Role/Attribute.pm
-    version: 0.12
+    version: 0.13
   MooseX::ClassAttribute::Trait::Application:
     file: lib/MooseX/ClassAttribute/Trait/Application.pm
-    version: 0.12
+    version: 0.13
   MooseX::ClassAttribute::Trait::Application::ToClass:
     file: lib/MooseX/ClassAttribute/Trait/Application/ToClass.pm
-    version: 0.12
+    version: 0.13
   MooseX::ClassAttribute::Trait::Application::ToRole:
     file: lib/MooseX/ClassAttribute/Trait/Application/ToRole.pm
-    version: 0.12
+    version: 0.13
   MooseX::ClassAttribute::Trait::Attribute:
     file: lib/MooseX/ClassAttribute/Trait/Attribute.pm
-    version: 0.12
+    version: 0.13
   MooseX::ClassAttribute::Trait::Class:
     file: lib/MooseX/ClassAttribute/Trait/Class.pm
-    version: 0.12
+    version: 0.13
   MooseX::ClassAttribute::Trait::Mixin::HasClassAttributes:
     file: lib/MooseX/ClassAttribute/Trait/Mixin/HasClassAttributes.pm
-    version: 0.12
+    version: 0.13
   MooseX::ClassAttribute::Trait::Role:
     file: lib/MooseX/ClassAttribute/Trait/Role.pm
-    version: 0.12
+    version: 0.13
 requires:
   Moose: 0.98
   namespace::autoclean: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.12
+version: 0.13
