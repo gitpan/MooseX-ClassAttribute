@@ -1,101 +1,14 @@
-NAME
-    MooseX::ClassAttribute - Declare class attributes Moose-style
 
-SYNOPSIS
-        package My::Class;
 
-        use Moose;
-        use MooseX::ClassAttribute;
+This archive contains the distribution MooseX-ClassAttribute,
+version 0.14:
 
-        class_has 'Cache' =>
-            ( is      => 'rw',
-              isa     => 'HashRef',
-              default => sub { {} },
-            );
+  Declare class attributes Moose-style
 
-        __PACKAGE__->meta()->make_immutable();
+This software is Copyright (c) 2010 by Dave Rolsky.
 
-        no Moose;
-        no MooseX::ClassAttribute;
+This is free software, licensed under:
 
-        # then later ...
+  The Artistic License 2.0
 
-        My::Class->Cache()->{thing} = ...;
-
-DESCRIPTION
-    This module allows you to declare class attributes in exactly the same
-    way as object attributes, using `class_has()' instead of `has()'.
-
-    You can use any feature of Moose's attribute declarations, including
-    overriding a parent's attributes, delegation (`handles'), attribute
-    traits, etc. All features should just work. The one exception is the
-    "required" flag, which is not allowed for class attributes.
-
-    The accessor methods for class attribute may be called on the class
-    directly, or on objects of that class. Passing a class attribute to the
-    constructor will not set that attribute.
-
-FUNCTIONS
-    This class exports one function when you use it, `class_has()'. This
-    works exactly like Moose's `has()', but it declares class attributes.
-
-    One little nit is that if you include `no Moose' in your class, you
-    won't remove the `class_has()' function. To do that you must include `no
-    MooseX::ClassAttribute' as well. Or you can just use
-    namespace::autoclean instead.
-
-  Implementation and Immutability
-    This module will add a role to your class's metaclass, See
-    MooseX::ClassAttribute::Trait::Class for details. This role provides
-    introspection methods for class attributes.
-
-    Class attributes themselves do the
-    MooseX::ClassAttribute::Trait::Attribute role.
-
-    There is also a MooseX::ClassAttribute::Meta::Method::Accessor which
-    provides part of the inlining implementation for class attributes.
-
-  Cooperation with Metaclasses and Traits
-    This module should work with most attribute metaclasses and traits, but
-    it's possible that conflicts could occur. This module has been tested to
-    work with Moose's native traits.
-
-  Class Attributes in Roles
-    You can add a class attribute to a role. When that role is applied to a
-    class, the class will have the relevant class attributes added. Note
-    that attribute defaults will be calculated when the class attribute is
-    composed into the class.
-
-DONATIONS
-    If you'd like to thank me for the work I've done on this module, please
-    consider making a "donation" to me via PayPal. I spend a lot of free
-    time creating free software, and would appreciate any support you'd care
-    to offer.
-
-    Please note that I am not suggesting that you must do this in order for
-    me to continue working on this particular software. I will continue to
-    do so, inasmuch as I have in the past, for as long as it interests me.
-
-    Similarly, a donation made in this way will probably not make me work on
-    this software much more, unless I get so many donations that I can
-    consider working on free software full time, which seems unlikely at
-    best.
-
-    To donate, log into PayPal and send money to autarch@urth.org or use the
-    button on this page: http://www.urth.org/~autarch/fs-donation.html
-
-AUTHOR
-    Dave Rolsky, `<autarch@urth.org>'
-
-BUGS
-    Please report any bugs or feature requests to
-    `bug-moosex-classattribute@rt.cpan.org', or through the web interface at
-    http://rt.cpan.org. I will be notified, and then you'll automatically be
-    notified of progress on your bug as I make changes.
-
-COPYRIGHT & LICENSE
-    Copyright 2007-2010 Dave Rolsky, All Rights Reserved.
-
-    This program is free software; you can redistribute it and/or modify it
-    under the same terms as Perl itself.
 

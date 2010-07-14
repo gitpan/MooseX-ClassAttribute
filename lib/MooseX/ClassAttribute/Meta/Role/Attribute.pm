@@ -1,9 +1,10 @@
 package MooseX::ClassAttribute::Meta::Role::Attribute;
+BEGIN {
+  $MooseX::ClassAttribute::Meta::Role::Attribute::VERSION = '0.14';
+}
 
 use strict;
 use warnings;
-
-our $VERSION   = '0.13';
 
 use List::MoreUtils qw( uniq );
 
@@ -25,7 +26,9 @@ sub new {
 
 1;
 
-__END__
+# ABSTRACT: An attribute metaclass for class attributes in roles
+
+
 
 =pod
 
@@ -33,24 +36,33 @@ __END__
 
 MooseX::ClassAttribute::Meta::Role::Attribute - An attribute metaclass for class attributes in roles
 
+=head1 VERSION
+
+version 0.14
+
 =head1 DESCRIPTION
 
 This class overrides L<Moose::Meta::Role::Attribute> to support class
 attribute declaration in roles.
 
-=head1 AUTHOR
-
-Dave Rolsky, C<< <autarch@urth.org> >>
-
 =head1 BUGS
 
 See L<MooseX::ClassAttribute> for details.
 
-=head1 COPYRIGHT & LICENSE
+=head1 AUTHOR
 
-Copyright 2007-2010 Dave Rolsky, All Rights Reserved.
+  Dave Rolsky <autarch@urth.org>
 
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2010 by Dave Rolsky.
+
+This is free software, licensed under:
+
+  The Artistic License 2.0
 
 =cut
+
+
+__END__
+

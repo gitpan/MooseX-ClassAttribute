@@ -1,9 +1,10 @@
 package MooseX::ClassAttribute::Trait::Application::ToRole;
+BEGIN {
+  $MooseX::ClassAttribute::Trait::Application::ToRole::VERSION = '0.14';
+}
 
 use strict;
 use warnings;
-
-our $VERSION   = '0.13';
 
 use Moose::Util::MetaRole;
 use MooseX::ClassAttribute::Trait::Application::ToClass;
@@ -50,7 +51,9 @@ sub _apply_class_attributes {
 
 1;
 
-__END__
+# ABSTRACT: A trait that supports applying class attributes to roles
+
+
 
 =pod
 
@@ -58,24 +61,33 @@ __END__
 
 MooseX::ClassAttribute::Trait::Application::ToRole - A trait that supports applying class attributes to roles
 
+=head1 VERSION
+
+version 0.14
+
 =head1 DESCRIPTION
 
 This trait is used to allow the application of roles containing class
 attributes to roles.
 
-=head1 AUTHOR
-
-Dave Rolsky, C<< <autarch@urth.org> >>
-
 =head1 BUGS
 
 See L<MooseX::ClassAttribute> for details.
 
-=head1 COPYRIGHT & LICENSE
+=head1 AUTHOR
 
-Copyright 2007-2010 Dave Rolsky, All Rights Reserved.
+  Dave Rolsky <autarch@urth.org>
 
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2010 by Dave Rolsky.
+
+This is free software, licensed under:
+
+  The Artistic License 2.0
 
 =cut
+
+
+__END__
+

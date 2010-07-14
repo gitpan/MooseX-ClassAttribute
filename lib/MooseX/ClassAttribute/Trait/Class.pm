@@ -1,9 +1,10 @@
 package MooseX::ClassAttribute::Trait::Class;
+BEGIN {
+  $MooseX::ClassAttribute::Trait::Class::VERSION = '0.14';
+}
 
 use strict;
 use warnings;
-
-our $VERSION   = '0.13';
 
 use MooseX::ClassAttribute::Trait::Attribute;
 use Scalar::Util qw( blessed );
@@ -227,13 +228,19 @@ sub inline_weaken_class_slot_value {
 
 1;
 
-__END__
+# ABSTRACT: A trait for classes with class attributes
+
+
 
 =pod
 
 =head1 NAME
 
 MooseX::ClassAttribute::Trait::Class - A trait for classes with class attributes
+
+=head1 VERSION
+
+version 0.14
 
 =head1 SYNOPSIS
 
@@ -317,19 +324,24 @@ you're doing some deep hacking. They are named as public methods
 solely because they are used by other meta roles and classes in this
 distribution.
 
-=head1 AUTHOR
-
-Dave Rolsky, C<< <autarch@urth.org> >>
-
 =head1 BUGS
 
 See L<MooseX::ClassAttribute> for details.
 
-=head1 COPYRIGHT & LICENSE
+=head1 AUTHOR
 
-Copyright 2007-2010 Dave Rolsky, All Rights Reserved.
+  Dave Rolsky <autarch@urth.org>
 
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2010 by Dave Rolsky.
+
+This is free software, licensed under:
+
+  The Artistic License 2.0
 
 =cut
+
+
+__END__
+

@@ -1,9 +1,10 @@
 package MooseX::ClassAttribute::Trait::Attribute;
+BEGIN {
+  $MooseX::ClassAttribute::Trait::Attribute::VERSION = '0.14';
+}
 
 use strict;
 use warnings;
-
-our $VERSION   = '0.13';
 
 use MooseX::ClassAttribute::Meta::Method::Accessor;
 
@@ -129,13 +130,19 @@ around 'clear_value' => sub {
 
 1;
 
-__END__
+# ABSTRACT: A trait for class attributes
+
+
 
 =pod
 
 =head1 NAME
 
 MooseX::ClassAttribute::Trait::Attribute - A trait for class attributes
+
+=head1 VERSION
+
+version 0.14
 
 =head1 DESCRIPTION
 
@@ -147,19 +154,24 @@ metaclasses, like C<MooseX::AttributeHelpers>.
 There are no new public methods implemented by this role. All it does
 is change the behavior of a number of existing methods.
 
-=head1 AUTHOR
-
-Dave Rolsky, C<< <autarch@urth.org> >>
-
 =head1 BUGS
 
 See L<MooseX::ClassAttribute> for details.
 
-=head1 COPYRIGHT & LICENSE
+=head1 AUTHOR
 
-Copyright 2007-2010 Dave Rolsky, All Rights Reserved.
+  Dave Rolsky <autarch@urth.org>
 
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2010 by Dave Rolsky.
+
+This is free software, licensed under:
+
+  The Artistic License 2.0
 
 =cut
+
+
+__END__
+

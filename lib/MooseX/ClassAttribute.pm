@@ -1,10 +1,10 @@
 package MooseX::ClassAttribute;
+BEGIN {
+  $MooseX::ClassAttribute::VERSION = '0.14';
+}
 
 use strict;
 use warnings;
-
-our $VERSION   = '0.13';
-our $AUTHORITY = 'cpan:DROLSKY';
 
 use Moose 0.98 ();
 use Moose::Exporter;
@@ -13,26 +13,19 @@ use MooseX::ClassAttribute::Trait::Role;
 use MooseX::ClassAttribute::Trait::Application::ToClass;
 use MooseX::ClassAttribute::Trait::Application::ToRole;
 
-Moose::Exporter->setup_import_methods( with_meta => ['class_has'] );
-
-sub init_meta {
-    shift;
-    my %p = @_;
-
-    return Moose::Util::MetaRole::apply_metaclass_roles(
-        for             => $p{for_class},
-        class_metaroles => {
-            class => ['MooseX::ClassAttribute::Trait::Class'],
-        },
-        role_metaroles => {
-            role => ['MooseX::ClassAttribute::Trait::Role'],
-            application_to_class =>
-                ['MooseX::ClassAttribute::Trait::Application::ToClass'],
-            application_to_role =>
-                ['MooseX::ClassAttribute::Trait::Application::ToRole'],
-        },
-    );
-}
+Moose::Exporter->setup_import_methods(
+    with_meta       => ['class_has'],
+    class_metaroles => {
+        class => ['MooseX::ClassAttribute::Trait::Class'],
+    },
+    role_metaroles => {
+        role => ['MooseX::ClassAttribute::Trait::Role'],
+        application_to_class =>
+            ['MooseX::ClassAttribute::Trait::Application::ToClass'],
+        application_to_role =>
+            ['MooseX::ClassAttribute::Trait::Application::ToRole'],
+    },
+);
 
 sub class_has {
     my $meta    = shift;
@@ -46,13 +39,19 @@ sub class_has {
 
 1;
 
-__END__
+# ABSTRACT: Declare class attributes Moose-style
+
+
 
 =pod
 
 =head1 NAME
 
 MooseX::ClassAttribute - Declare class attributes Moose-style
+
+=head1 VERSION
+
+version 0.14
 
 =head1 SYNOPSIS
 
@@ -147,10 +146,6 @@ To donate, log into PayPal and send money to autarch@urth.org or use
 the button on this page:
 L<http://www.urth.org/~autarch/fs-donation.html>
 
-=head1 AUTHOR
-
-Dave Rolsky, C<< <autarch@urth.org> >>
-
 =head1 BUGS
 
 Please report any bugs or feature requests to
@@ -158,11 +153,20 @@ C<bug-moosex-classattribute@rt.cpan.org>, or through the web interface
 at L<http://rt.cpan.org>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
 
-=head1 COPYRIGHT & LICENSE
+=head1 AUTHOR
 
-Copyright 2007-2010 Dave Rolsky, All Rights Reserved.
+  Dave Rolsky <autarch@urth.org>
 
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2010 by Dave Rolsky.
+
+This is free software, licensed under:
+
+  The Artistic License 2.0
 
 =cut
+
+
+__END__
+

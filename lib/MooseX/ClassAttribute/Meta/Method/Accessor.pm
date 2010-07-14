@@ -1,9 +1,10 @@
 package MooseX::ClassAttribute::Meta::Method::Accessor;
+BEGIN {
+  $MooseX::ClassAttribute::Meta::Method::Accessor::VERSION = '0.14';
+}
 
 use strict;
 use warnings;
-
-our $VERSION   = '0.13';
 
 use namespace::autoclean;
 use Moose;
@@ -116,7 +117,9 @@ sub _inline_get_old_value_for_trigger {
 
 1;
 
-__END__
+# ABSTRACT: Accessor method generation for class attributes
+
+
 
 =pod
 
@@ -124,24 +127,33 @@ __END__
 
 MooseX::ClassAttribute::Meta::Method::Accessor - Accessor method generation for class attributes
 
+=head1 VERSION
+
+version 0.14
+
 =head1 DESCRIPTION
 
 This class overrides L<Moose::Meta::Method::Accessor> to do code
 generation properly for class attributes.
 
-=head1 AUTHOR
-
-Dave Rolsky, C<< <autarch@urth.org> >>
-
 =head1 BUGS
 
 See L<MooseX::ClassAttribute> for details.
 
-=head1 COPYRIGHT & LICENSE
+=head1 AUTHOR
 
-Copyright 2007-2010 Dave Rolsky, All Rights Reserved.
+  Dave Rolsky <autarch@urth.org>
 
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2010 by Dave Rolsky.
+
+This is free software, licensed under:
+
+  The Artistic License 2.0
 
 =cut
+
+
+__END__
+

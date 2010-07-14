@@ -1,52 +1,23 @@
 ---
 abstract: 'Declare class attributes Moose-style'
 author:
-  - 'Dave Rolsky, C<< <autarch@urth.org> >>'
+  - 'Dave Rolsky <autarch@urth.org>'
 build_requires:
   Scalar::Util: 0
   Test::More: 0.88
 configure_requires:
-  Module::Build: 0.36
-generated_by: 'Module::Build version 0.3603'
-license: perl
+  ExtUtils::MakeMaker: 6.31
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.101900, CPAN::Meta::Converter version 2.101670'
+license: artistic_2
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: MooseX-ClassAttribute
-provides:
-  MooseX::ClassAttribute:
-    file: lib/MooseX/ClassAttribute.pm
-    version: 0.13
-  MooseX::ClassAttribute::Meta::Method::Accessor:
-    file: lib/MooseX/ClassAttribute/Meta/Method/Accessor.pm
-    version: 0.13
-  MooseX::ClassAttribute::Meta::Role::Attribute:
-    file: lib/MooseX/ClassAttribute/Meta/Role/Attribute.pm
-    version: 0.13
-  MooseX::ClassAttribute::Trait::Application:
-    file: lib/MooseX/ClassAttribute/Trait/Application.pm
-    version: 0.13
-  MooseX::ClassAttribute::Trait::Application::ToClass:
-    file: lib/MooseX/ClassAttribute/Trait/Application/ToClass.pm
-    version: 0.13
-  MooseX::ClassAttribute::Trait::Application::ToRole:
-    file: lib/MooseX/ClassAttribute/Trait/Application/ToRole.pm
-    version: 0.13
-  MooseX::ClassAttribute::Trait::Attribute:
-    file: lib/MooseX/ClassAttribute/Trait/Attribute.pm
-    version: 0.13
-  MooseX::ClassAttribute::Trait::Class:
-    file: lib/MooseX/ClassAttribute/Trait/Class.pm
-    version: 0.13
-  MooseX::ClassAttribute::Trait::Mixin::HasClassAttributes:
-    file: lib/MooseX/ClassAttribute/Trait/Mixin/HasClassAttributes.pm
-    version: 0.13
-  MooseX::ClassAttribute::Trait::Role:
-    file: lib/MooseX/ClassAttribute/Trait/Role.pm
-    version: 0.13
 requires:
   Moose: 0.98
   namespace::autoclean: 0
 resources:
-  license: http://dev.perl.org/licenses/
-version: 0.13
+  bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist={{MooseX-ClassAttribute}}
+  repository: git://git.moose.perl.org/MooseX-ClassAttribute.git
+version: 0.14
