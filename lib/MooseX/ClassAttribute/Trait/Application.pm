@@ -1,6 +1,6 @@
 package MooseX::ClassAttribute::Trait::Application;
 BEGIN {
-  $MooseX::ClassAttribute::Trait::Application::VERSION = '0.14';
+  $MooseX::ClassAttribute::Trait::Application::VERSION = '0.15';
 }
 
 use strict;
@@ -27,7 +27,7 @@ MooseX::ClassAttribute::Trait::Application - A trait that supports role applicat
 
 =head1 VERSION
 
-version 0.14
+version 0.15
 
 =head1 DESCRIPTION
 

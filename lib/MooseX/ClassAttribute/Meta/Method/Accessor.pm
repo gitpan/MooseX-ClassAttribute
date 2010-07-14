@@ -1,6 +1,6 @@
 package MooseX::ClassAttribute::Meta::Method::Accessor;
 BEGIN {
-  $MooseX::ClassAttribute::Meta::Method::Accessor::VERSION = '0.14';
+  $MooseX::ClassAttribute::Meta::Method::Accessor::VERSION = '0.15';
 }
 
 use strict;
@@ -129,7 +129,7 @@ MooseX::ClassAttribute::Meta::Method::Accessor - Accessor method generation for 
 
 =head1 VERSION
 
-version 0.14
+version 0.15
 
 =head1 DESCRIPTION
 

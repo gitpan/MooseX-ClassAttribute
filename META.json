@@ -36,7 +36,7 @@
    "resources" : {
       "bugtracker" : {
          "mailto" : "bug-moosex-classattribute@rt.cpan.org",
-         "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist={{MooseX-ClassAttribute}}"
+         "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=MooseX-ClassAttribute"
       },
       "repository" : {
          "type" : "hg",
@@ -44,6 +44,6 @@
          "web" : "http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=gitmo/MooseX-ClassAttribute.git;a=summary"
       }
    },
-   "version" : "0.14"
+   "version" : "0.15"
 }
 
