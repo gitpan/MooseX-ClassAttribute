@@ -39,11 +39,11 @@
          "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=MooseX-ClassAttribute"
       },
       "repository" : {
-         "type" : "hg",
+         "type" : "git",
          "url" : "git://git.moose.perl.org/MooseX-ClassAttribute.git",
          "web" : "http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=gitmo/MooseX-ClassAttribute.git;a=summary"
       }
    },
-   "version" : "0.15"
+   "version" : "0.16"
 }
 
