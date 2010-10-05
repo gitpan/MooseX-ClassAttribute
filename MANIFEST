@@ -9,7 +9,6 @@ README
 SIGNATURE
 dist.ini
 lib/MooseX/ClassAttribute.pm
-lib/MooseX/ClassAttribute/Meta/Method/Accessor.pm
 lib/MooseX/ClassAttribute/Meta/Role/Attribute.pm
 lib/MooseX/ClassAttribute/Trait/Application.pm
 lib/MooseX/ClassAttribute/Trait/Application/ToClass.pm
@@ -24,9 +23,10 @@ t/03-introspection.t
 t/04-with-native-traits.t
 t/05-with-attribute-helpers-backcompat.t
 t/06-role.t
+t/07-parameterized-role.t
+t/08-role-composition.t
 t/lib/SharedTests.pm
 t/release-eol.t
-t/release-kwalitee.t
 t/release-no-tabs.t
 t/release-pod-coverage.t
 t/release-pod-spell.t

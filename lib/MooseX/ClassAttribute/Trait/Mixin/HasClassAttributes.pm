@@ -1,6 +1,6 @@
 package MooseX::ClassAttribute::Trait::Mixin::HasClassAttributes;
 BEGIN {
-  $MooseX::ClassAttribute::Trait::Mixin::HasClassAttributes::VERSION = '0.16';
+  $MooseX::ClassAttribute::Trait::Mixin::HasClassAttributes::VERSION = '0.18';
 }
 
 use strict;
@@ -89,7 +89,7 @@ MooseX::ClassAttribute::Trait::Mixin::HasClassAttributes - A mixin trait for thi
 
 =head1 VERSION
 
-version 0.16
+version 0.18
 
 =head1 DESCRIPTION
 
@@ -105,7 +105,7 @@ See L<MooseX::ClassAttribute> for details.
 
 =head1 AUTHOR
 
-  Dave Rolsky <autarch@urth.org>
+Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 

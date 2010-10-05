@@ -13,7 +13,9 @@ my %WriteMakefileArgs = (
   'AUTHOR' => 'Dave Rolsky <autarch@urth.org>',
   'BUILD_REQUIRES' => {
     'Scalar::Util' => '0',
-    'Test::More' => '0.88'
+    'Test::Exception' => '0',
+    'Test::More' => '0.88',
+    'Test::Requires' => '0.05'
   },
   'CONFIGURE_REQUIRES' => {
     'ExtUtils::MakeMaker' => '6.31'
@@ -23,10 +25,10 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'artistic_2',
   'NAME' => 'MooseX::ClassAttribute',
   'PREREQ_PM' => {
-    'Moose' => '0.98',
+    'Moose' => '1.15',
     'namespace::autoclean' => '0'
   },
-  'VERSION' => '0.16',
+  'VERSION' => '0.18',
   'test' => {
     'TESTS' => 't/*.t'
   }

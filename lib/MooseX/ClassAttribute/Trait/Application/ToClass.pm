@@ -1,6 +1,6 @@
 package MooseX::ClassAttribute::Trait::Application::ToClass;
 BEGIN {
-  $MooseX::ClassAttribute::Trait::Application::ToClass::VERSION = '0.16';
+  $MooseX::ClassAttribute::Trait::Application::ToClass::VERSION = '0.18';
 }
 
 use strict;
@@ -53,7 +53,7 @@ MooseX::ClassAttribute::Trait::Application::ToClass - A trait that supports appl
 
 =head1 VERSION
 
-version 0.16
+version 0.18
 
 =head1 DESCRIPTION
 
@@ -66,7 +66,7 @@ See L<MooseX::ClassAttribute> for details.
 
 =head1 AUTHOR
 
-  Dave Rolsky <autarch@urth.org>
+Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 

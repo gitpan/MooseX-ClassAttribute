@@ -1,6 +1,6 @@
 package MooseX::ClassAttribute::Trait::Attribute;
 BEGIN {
-  $MooseX::ClassAttribute::Trait::Attribute::VERSION = '0.16';
+  $MooseX::ClassAttribute::Trait::Attribute::VERSION = '0.18';
 }
 
 use strict;
@@ -14,10 +14,6 @@ use Moose::Role;
 # This is the worst role evar! Really, this should be a subclass,
 # because it overrides a lot of behavior. However, as a subclass it
 # won't cooperate with _other_ subclasses.
-
-around 'accessor_metaclass' => sub {
-    return 'MooseX::ClassAttribute::Meta::Method::Accessor';
-};
 
 around '_process_options' => sub {
     my $orig    = shift;
@@ -128,6 +124,48 @@ around 'clear_value' => sub {
         ->clear_class_attribute_value( $self->name() );
 };
 
+around 'inline_get' => sub {
+    shift;
+    my $self = shift;
+
+    return $self->associated_class()
+        ->inline_get_class_slot_value( $self->slots() );
+};
+
+around 'inline_set' => sub {
+    shift;
+    my $self  = shift;
+    shift;
+    my $value = shift;
+
+    my $meta = $self->associated_class();
+
+    my $code
+        = $meta->inline_set_class_slot_value( $self->slots(), $value ) . ";";
+    $code
+        .= $meta->inline_weaken_class_slot_value( $self->slots(), $value )
+        . "    if ref $value;"
+        if $self->is_weak_ref();
+
+    return $code;
+};
+
+around 'inline_has' => sub {
+    shift;
+    my $self = shift;
+
+    return $self->associated_class()
+        ->inline_is_class_slot_initialized( $self->slots() );
+};
+
+around 'inline_clear' => sub {
+    shift;
+    my $self = shift;
+
+    return $self->associated_class()
+        ->inline_deinitialize_class_slot( $self->slots() );
+};
+
 1;
 
 # ABSTRACT: A trait for class attributes
@@ -142,7 +180,7 @@ MooseX::ClassAttribute::Trait::Attribute - A trait for class attributes
 
 =head1 VERSION
 
-version 0.16
+version 0.18
 
 =head1 DESCRIPTION
 
@@ -160,7 +198,7 @@ See L<MooseX::ClassAttribute> for details.
 
 =head1 AUTHOR
 
-  Dave Rolsky <autarch@urth.org>
+Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 

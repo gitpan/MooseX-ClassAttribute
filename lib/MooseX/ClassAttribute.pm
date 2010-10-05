@@ -1,12 +1,12 @@
 package MooseX::ClassAttribute;
 BEGIN {
-  $MooseX::ClassAttribute::VERSION = '0.16';
+  $MooseX::ClassAttribute::VERSION = '0.18';
 }
 
 use strict;
 use warnings;
 
-use Moose 0.98 ();
+use Moose 1.15 ();
 use Moose::Exporter;
 use MooseX::ClassAttribute::Trait::Class;
 use MooseX::ClassAttribute::Trait::Role;
@@ -51,7 +51,7 @@ MooseX::ClassAttribute - Declare class attributes Moose-style
 
 =head1 VERSION
 
-version 0.16
+version 0.18
 
 =head1 SYNOPSIS
 
@@ -155,7 +155,7 @@ automatically be notified of progress on your bug as I make changes.
 
 =head1 AUTHOR
 
-  Dave Rolsky <autarch@urth.org>
+Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
