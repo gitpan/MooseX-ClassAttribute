@@ -28,7 +28,7 @@ my %WriteMakefileArgs = (
     'Moose' => '1.15',
     'namespace::autoclean' => '0'
   },
-  'VERSION' => '0.18',
+  'VERSION' => '0.19',
   'test' => {
     'TESTS' => 't/*.t'
   }

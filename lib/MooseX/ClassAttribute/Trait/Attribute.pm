@@ -1,12 +1,10 @@
 package MooseX::ClassAttribute::Trait::Attribute;
 BEGIN {
-  $MooseX::ClassAttribute::Trait::Attribute::VERSION = '0.18';
+  $MooseX::ClassAttribute::Trait::Attribute::VERSION = '0.19';
 }
 
 use strict;
 use warnings;
-
-use MooseX::ClassAttribute::Meta::Method::Accessor;
 
 use namespace::autoclean;
 use Moose::Role;
@@ -180,7 +178,7 @@ MooseX::ClassAttribute::Trait::Attribute - A trait for class attributes
 
 =head1 VERSION
 
-version 0.18
+version 0.19
 
 =head1 DESCRIPTION
 
