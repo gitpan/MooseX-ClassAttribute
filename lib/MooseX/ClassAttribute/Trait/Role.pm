@@ -1,6 +1,6 @@
 package MooseX::ClassAttribute::Trait::Role;
 BEGIN {
-  $MooseX::ClassAttribute::Trait::Role::VERSION = '0.19';
+  $MooseX::ClassAttribute::Trait::Role::VERSION = '0.20';
 }
 
 use strict;
@@ -48,7 +48,7 @@ MooseX::ClassAttribute::Trait::Role - A trait for roles with class attributes
 
 =head1 VERSION
 
-version 0.19
+version 0.20
 
 =head1 SYNOPSIS
 
