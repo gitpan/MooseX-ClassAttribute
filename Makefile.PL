@@ -13,7 +13,7 @@ my %WriteMakefileArgs = (
   'AUTHOR' => 'Dave Rolsky <autarch@urth.org>',
   'BUILD_REQUIRES' => {
     'Scalar::Util' => '0',
-    'Test::Exception' => '0',
+    'Test::Fatal' => '0',
     'Test::More' => '0.88',
     'Test::Requires' => '0.05'
   },
@@ -28,7 +28,7 @@ my %WriteMakefileArgs = (
     'Moose' => '1.15',
     'namespace::autoclean' => '0'
   },
-  'VERSION' => '0.20',
+  'VERSION' => '0.21',
   'test' => {
     'TESTS' => 't/*.t'
   }

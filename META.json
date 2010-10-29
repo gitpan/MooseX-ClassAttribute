@@ -4,7 +4,7 @@
       "Dave Rolsky <autarch@urth.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.102341, CPAN::Meta::Converter version 2.101670",
+   "generated_by" : "Dist::Zilla version 4.102342, CPAN::Meta::Converter version 2.101670",
    "license" : [
       "artistic_2"
    ],
@@ -28,7 +28,7 @@
       "test" : {
          "requires" : {
             "Scalar::Util" : 0,
-            "Test::Exception" : 0,
+            "Test::Fatal" : 0,
             "Test::More" : "0.88",
             "Test::Requires" : "0.05"
          }
@@ -46,6 +46,6 @@
          "web" : "http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=gitmo/MooseX-ClassAttribute.git;a=summary"
       }
    },
-   "version" : "0.20"
+   "version" : "0.21"
 }
 

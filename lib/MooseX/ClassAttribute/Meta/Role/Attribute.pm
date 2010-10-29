@@ -1,6 +1,6 @@
 package MooseX::ClassAttribute::Meta::Role::Attribute;
 BEGIN {
-  $MooseX::ClassAttribute::Meta::Role::Attribute::VERSION = '0.20';
+  $MooseX::ClassAttribute::Meta::Role::Attribute::VERSION = '0.21';
 }
 
 use strict;
@@ -38,7 +38,7 @@ MooseX::ClassAttribute::Meta::Role::Attribute - An attribute metaclass for class
 
 =head1 VERSION
 
-version 0.20
+version 0.21
 
 =head1 DESCRIPTION
 
