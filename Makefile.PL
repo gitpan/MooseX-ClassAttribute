@@ -26,9 +26,10 @@ my %WriteMakefileArgs = (
   'NAME' => 'MooseX::ClassAttribute',
   'PREREQ_PM' => {
     'Moose' => '1.15',
-    'namespace::autoclean' => '0'
+    'namespace::autoclean' => '0.11',
+    'namespace::clean' => '0.20'
   },
-  'VERSION' => '0.21',
+  'VERSION' => '0.22',
   'test' => {
     'TESTS' => 't/*.t'
   }
