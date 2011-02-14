@@ -1,6 +1,6 @@
 package MooseX::ClassAttribute::Trait::Role;
 BEGIN {
-  $MooseX::ClassAttribute::Trait::Role::VERSION = '0.22';
+  $MooseX::ClassAttribute::Trait::Role::VERSION = '0.23';
 }
 
 use strict;
@@ -34,6 +34,10 @@ sub _attach_class_attribute {
     $attribute->attach_to_role($self);
 }
 
+sub composition_class_roles {
+    return 'MooseX::ClassAttribute::Trait::Role::Composite';
+}
+
 1;
 
 # ABSTRACT: A trait for roles with class attributes
@@ -48,7 +52,7 @@ MooseX::ClassAttribute::Trait::Role - A trait for roles with class attributes
 
 =head1 VERSION
 
-version 0.22
+version 0.23
 
 =head1 SYNOPSIS
 

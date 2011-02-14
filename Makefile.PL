@@ -25,11 +25,11 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'artistic_2',
   'NAME' => 'MooseX::ClassAttribute',
   'PREREQ_PM' => {
-    'Moose' => '1.15',
+    'Moose' => '1.23',
     'namespace::autoclean' => '0.11',
     'namespace::clean' => '0.20'
   },
-  'VERSION' => '0.22',
+  'VERSION' => '0.23',
   'test' => {
     'TESTS' => 't/*.t'
   }

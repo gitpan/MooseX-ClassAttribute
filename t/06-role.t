@@ -45,7 +45,20 @@ use Moose::Util qw( apply_all_roles );
     }
 }
 
+ok(
+    ClassWithRoleHCA->meta()->does_role('RoleHCA'),
+    'ClassWithRoleHCA does RoleHCA'
+);
+
 SharedTests::run_tests('ClassWithRoleHCA');
+
+ClassWithRoleHCA->meta()->make_immutable();
+
+ok(
+    ClassWithRoleHCA->meta()->does_role('RoleHCA'),
+    'ClassWithRoleHCA (immutable) does RoleHCA'
+);
+
 
 # These next tests are aimed at testing to-role application followed by
 # to-class application
@@ -57,6 +70,11 @@ SharedTests::run_tests('ClassWithRoleHCA');
 
     with 'RoleHCA';
 }
+
+ok(
+    RoleWithRoleHCA->meta()->does_role('RoleHCA'),
+    'RoleWithRoleHCA does RoleHCA'
+);
 
 {
     package ClassWithRoleWithRoleHCA;
@@ -84,7 +102,19 @@ SharedTests::run_tests('ClassWithRoleHCA');
     }
 }
 
+ok(
+    ClassWithRoleWithRoleHCA->meta()->does_role('RoleHCA'),
+    'ClassWithRoleWithRoleHCA does RoleHCA'
+);
+
 SharedTests::run_tests('ClassWithRoleWithRoleHCA');
+
+ClassWithRoleWithRoleHCA->meta()->make_immutable();
+
+ok(
+    ClassWithRoleWithRoleHCA->meta()->does_role('RoleHCA'),
+    'ClassWithRoleWithRoleHCA (immutable) does RoleHCA'
+);
 
 {
     package InstanceWithRoleHCA;
@@ -108,8 +138,20 @@ my $instance = InstanceWithRoleHCA->new();
 
 apply_all_roles( $instance, 'RoleHCA' );
 
+ok(
+    $instance->meta()->does_role('RoleHCA'),
+    '$instance does RoleHCA'
+);
+
 $instance->ObjectCount(1);
 
 SharedTests::run_tests($instance);
+
+$instance->meta()->make_immutable();
+
+ok(
+    $instance->meta()->does_role('RoleHCA'),
+    '$instance (immutable) does RoleHCA'
+);
 
 done_testing();

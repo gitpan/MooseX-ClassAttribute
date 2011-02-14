@@ -28,9 +28,9 @@ use Test::More;
     with( 'Role2', 'Role' );
 }
 
-{
-    local $TODO = 'Class attributes are lost during role composition';
-    can_ok( 'Bar', 'CA', );
-}
+ok(
+    Bar->can('CA'),
+    'Class attributes are preserved during role composition'
+);
 
 done_testing();

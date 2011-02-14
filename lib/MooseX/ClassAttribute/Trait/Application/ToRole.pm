@@ -1,6 +1,6 @@
 package MooseX::ClassAttribute::Trait::Application::ToRole;
 BEGIN {
-  $MooseX::ClassAttribute::Trait::Application::ToRole::VERSION = '0.22';
+  $MooseX::ClassAttribute::Trait::Application::ToRole::VERSION = '0.23';
 }
 
 use strict;
@@ -14,7 +14,8 @@ use Moose::Role;
 
 with 'MooseX::ClassAttribute::Trait::Application';
 
-sub _apply_class_attributes {
+around apply => sub {
+    my $orig  = shift;
     my $self  = shift;
     my $role1 = shift;
     my $role2 = shift;
@@ -29,6 +30,14 @@ sub _apply_class_attributes {
                 ['MooseX::ClassAttribute::Trait::Application::ToRole'],
         },
     );
+
+    $self->$orig( $role1, $role2 );
+};
+
+sub _apply_class_attributes {
+    my $self  = shift;
+    my $role1 = shift;
+    my $role2 = shift;
 
     foreach my $attribute_name ( $role1->get_class_attribute_list() ) {
         if (   $role2->has_class_attribute($attribute_name)
@@ -63,7 +72,7 @@ MooseX::ClassAttribute::Trait::Application::ToRole - A trait that supports apply
 
 =head1 VERSION
 
-version 0.22
+version 0.23
 
 =head1 DESCRIPTION
 
