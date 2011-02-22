@@ -1,6 +1,6 @@
 package MooseX::ClassAttribute::Trait::Attribute;
 BEGIN {
-  $MooseX::ClassAttribute::Trait::Attribute::VERSION = '0.23';
+  $MooseX::ClassAttribute::Trait::Attribute::VERSION = '0.24';
 }
 
 use strict;
@@ -13,7 +13,7 @@ use Moose::Role;
 # because it overrides a lot of behavior. However, as a subclass it
 # won't cooperate with _other_ subclasses.
 
-around '_process_options' => sub {
+around _process_options => sub {
     my $orig    = shift;
     my $class   = shift;
     my $name    = shift;
@@ -25,25 +25,19 @@ around '_process_options' => sub {
     return $class->$orig( $name, $options );
 };
 
-around attach_to_class => sub {
-    my $orig = shift;
+after attach_to_class => sub {
     my $self = shift;
     my $meta = shift;
-
-    $self->$orig($meta);
 
     $self->_initialize($meta)
         unless $self->is_lazy();
 };
 
-around 'detach_from_class' => sub {
-    my $orig = shift;
+before detach_from_class => sub {
     my $self = shift;
     my $meta = shift;
 
     $self->clear_value($meta);
-
-    $self->$orig($meta);
 };
 
 sub _initialize {
@@ -58,7 +52,7 @@ sub _initialize {
     }
 }
 
-around 'default' => sub {
+around default => sub {
     my $orig = shift;
     my $self = shift;
 
@@ -71,7 +65,7 @@ around 'default' => sub {
     return $default;
 };
 
-around '_call_builder' => sub {
+around _call_builder => sub {
     shift;
     my $self  = shift;
     my $class = shift;
@@ -88,7 +82,7 @@ around '_call_builder' => sub {
             . "'" );
 };
 
-around 'set_value' => sub {
+around set_value => sub {
     shift;
     my $self = shift;
     shift;    # ignoring instance or class name
@@ -98,7 +92,7 @@ around 'set_value' => sub {
         ->set_class_attribute_value( $self->name() => $value );
 };
 
-around 'get_value' => sub {
+around get_value => sub {
     shift;
     my $self = shift;
 
@@ -106,7 +100,7 @@ around 'get_value' => sub {
         ->get_class_attribute_value( $self->name() );
 };
 
-around 'has_value' => sub {
+around has_value => sub {
     shift;
     my $self = shift;
 
@@ -114,7 +108,7 @@ around 'has_value' => sub {
         ->has_class_attribute_value( $self->name() );
 };
 
-around 'clear_value' => sub {
+around clear_value => sub {
     shift;
     my $self = shift;
 
@@ -122,47 +116,101 @@ around 'clear_value' => sub {
         ->clear_class_attribute_value( $self->name() );
 };
 
-around 'inline_get' => sub {
-    shift;
-    my $self = shift;
+if ( $Moose::VERSION < 1.99 ) {
+    around inline_get => sub {
+        shift;
+        my $self = shift;
 
-    return $self->associated_class()
-        ->inline_get_class_slot_value( $self->slots() );
-};
+        return $self->associated_class()
+            ->_inline_get_class_slot_value( $self->slots() );
+    };
 
-around 'inline_set' => sub {
-    shift;
-    my $self  = shift;
-    shift;
-    my $value = shift;
+    around inline_set => sub {
+        shift;
+        my $self = shift;
+        shift;
+        my $value = shift;
 
-    my $meta = $self->associated_class();
+        my $meta = $self->associated_class();
 
-    my $code
-        = $meta->inline_set_class_slot_value( $self->slots(), $value ) . ";";
-    $code
-        .= $meta->inline_weaken_class_slot_value( $self->slots(), $value )
-        . "    if ref $value;"
-        if $self->is_weak_ref();
+        my $code
+            = $meta->_inline_set_class_slot_value( $self->slots(), $value )
+            . ";";
+        $code
+            .= $meta->_inline_weaken_class_slot_value( $self->slots(), $value )
+            . "    if ref $value;"
+            if $self->is_weak_ref();
 
-    return $code;
-};
+        return $code;
+    };
 
-around 'inline_has' => sub {
-    shift;
-    my $self = shift;
+    around inline_has => sub {
+        shift;
+        my $self = shift;
 
-    return $self->associated_class()
-        ->inline_is_class_slot_initialized( $self->slots() );
-};
+        return $self->associated_class()
+            ->_inline_is_class_slot_initialized( $self->slots() );
+    };
 
-around 'inline_clear' => sub {
-    shift;
-    my $self = shift;
+    around inline_clear => sub {
+        shift;
+        my $self = shift;
 
-    return $self->associated_class()
-        ->inline_deinitialize_class_slot( $self->slots() );
-};
+        return $self->associated_class()
+            ->_inline_deinitialize_class_slot( $self->slots() );
+    };
+}
+else {
+    around _inline_instance_get => sub {
+        shift;
+        my $self = shift;
+
+        return $self->associated_class()
+            ->_inline_get_class_slot_value( $self->slots() );
+    };
+
+    around _inline_instance_set => sub {
+        shift;
+        my $self = shift;
+        shift;
+        my $value = shift;
+
+        return $self->associated_class()
+            ->_inline_set_class_slot_value( $self->slots(), $value );
+    };
+
+    around _inline_instance_has => sub {
+        shift;
+        my $self = shift;
+
+        return $self->associated_class()
+            ->_inline_is_class_slot_initialized( $self->slots() );
+    };
+
+    around _inline_instance_clear => sub {
+        shift;
+        my $self = shift;
+
+        return $self->associated_class()
+            ->_inline_deinitialize_class_slot( $self->slots() );
+    };
+
+    around _inline_weaken_value => sub {
+        shift;
+        my $self = shift;
+        shift;
+        my $value = shift;
+
+        return unless $self->is_weak_ref();
+
+        return (
+            $self->associated_class->_inline_weaken_class_slot_value(
+                $self->slots(), $value
+            ),
+            'if ref ' . $value . ';',
+        );
+    };
+}
 
 1;
 
@@ -178,7 +226,7 @@ MooseX::ClassAttribute::Trait::Attribute - A trait for class attributes
 
 =head1 VERSION
 
-version 0.23
+version 0.24
 
 =head1 DESCRIPTION
 

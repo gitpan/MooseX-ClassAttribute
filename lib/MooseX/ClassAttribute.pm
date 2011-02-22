@@ -1,6 +1,6 @@
 package MooseX::ClassAttribute;
 BEGIN {
-  $MooseX::ClassAttribute::VERSION = '0.23';
+  $MooseX::ClassAttribute::VERSION = '0.24';
 }
 
 use strict;
@@ -51,7 +51,7 @@ MooseX::ClassAttribute - Declare class attributes Moose-style
 
 =head1 VERSION
 
-version 0.23
+version 0.24
 
 =head1 SYNOPSIS
 
