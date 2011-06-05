@@ -1,6 +1,6 @@
 package MooseX::ClassAttribute::Trait::Attribute;
 BEGIN {
-  $MooseX::ClassAttribute::Trait::Attribute::VERSION = '0.24';
+  $MooseX::ClassAttribute::Trait::Attribute::VERSION = '0.25';
 }
 
 use strict;
@@ -226,7 +226,7 @@ MooseX::ClassAttribute::Trait::Attribute - A trait for class attributes
 
 =head1 VERSION
 
-version 0.24
+version 0.25
 
 =head1 DESCRIPTION
 

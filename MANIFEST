@@ -6,7 +6,6 @@ META.json
 META.yml
 Makefile.PL
 README
-SIGNATURE
 dist.ini
 lib/MooseX/ClassAttribute.pm
 lib/MooseX/ClassAttribute/Meta/Role/Attribute.pm

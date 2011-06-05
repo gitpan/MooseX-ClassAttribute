@@ -1,6 +1,6 @@
 package MooseX::ClassAttribute::Trait::Role::Composite;
 BEGIN {
-  $MooseX::ClassAttribute::Trait::Role::Composite::VERSION = '0.24';
+  $MooseX::ClassAttribute::Trait::Role::Composite::VERSION = '0.25';
 }
 
 use strict;
@@ -87,7 +87,7 @@ MooseX::ClassAttribute::Trait::Role::Composite - A trait that supports applying 
 
 =head1 VERSION
 
-version 0.24
+version 0.25
 
 =head1 DESCRIPTION
 

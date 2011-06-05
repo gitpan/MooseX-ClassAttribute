@@ -1,6 +1,6 @@
 package MooseX::ClassAttribute;
 BEGIN {
-  $MooseX::ClassAttribute::VERSION = '0.24';
+  $MooseX::ClassAttribute::VERSION = '0.25';
 }
 
 use strict;
@@ -8,6 +8,7 @@ use warnings;
 
 use Moose 1.23 ();
 use Moose::Exporter;
+use Moose::Util;
 use MooseX::ClassAttribute::Trait::Class;
 use MooseX::ClassAttribute::Trait::Role;
 use MooseX::ClassAttribute::Trait::Application::ToClass;
@@ -30,9 +31,10 @@ Moose::Exporter->setup_import_methods(
 sub class_has {
     my $meta    = shift;
     my $name    = shift;
-    my %options = @_;
 
     my $attrs = ref $name eq 'ARRAY' ? $name : [$name];
+
+    my %options = ( definition_context => Moose::Util::_caller_info(), @_ );
 
     $meta->add_class_attribute( $_, %options ) for @{$attrs};
 }
@@ -51,7 +53,7 @@ MooseX::ClassAttribute - Declare class attributes Moose-style
 
 =head1 VERSION
 
-version 0.24
+version 0.25
 
 =head1 SYNOPSIS
 
