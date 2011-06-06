@@ -29,6 +29,7 @@ t/09-bare-native-traits.t
 t/10-strict-role-composition.t
 t/11-moose-exporter.t
 t/lib/SharedTests.pm
+t/release-cpan-changes.t
 t/release-eol.t
 t/release-no-tabs.t
 t/release-pod-coverage.t
