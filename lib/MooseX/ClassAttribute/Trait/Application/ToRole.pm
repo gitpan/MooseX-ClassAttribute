@@ -1,6 +1,6 @@
 package MooseX::ClassAttribute::Trait::Application::ToRole;
-BEGIN {
-  $MooseX::ClassAttribute::Trait::Application::ToRole::VERSION = '0.26';
+{
+  $MooseX::ClassAttribute::Trait::Application::ToRole::VERSION = '0.27';
 }
 
 use strict;
@@ -62,7 +62,7 @@ sub _apply_class_attributes {
 
 # ABSTRACT: A trait that supports applying class attributes to roles
 
-
+__END__
 
 =pod
 
@@ -72,7 +72,7 @@ MooseX::ClassAttribute::Trait::Application::ToRole - A trait that supports apply
 
 =head1 VERSION
 
-version 0.26
+version 0.27
 
 =head1 DESCRIPTION
 
@@ -89,14 +89,10 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2011 by Dave Rolsky.
+This software is Copyright (c) 2013 by Dave Rolsky.
 
 This is free software, licensed under:
 
   The Artistic License 2.0 (GPL Compatible)
 
 =cut
-
-
-__END__
-

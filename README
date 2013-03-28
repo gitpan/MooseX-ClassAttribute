@@ -1,11 +1,11 @@
 
 
 This archive contains the distribution MooseX-ClassAttribute,
-version 0.26:
+version 0.27:
 
   Declare class attributes Moose-style
 
-This software is Copyright (c) 2011 by Dave Rolsky.
+This software is Copyright (c) 2013 by Dave Rolsky.
 
 This is free software, licensed under:
 

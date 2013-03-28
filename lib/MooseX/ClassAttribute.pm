@@ -1,12 +1,17 @@
 package MooseX::ClassAttribute;
-BEGIN {
-  $MooseX::ClassAttribute::VERSION = '0.26';
+{
+  $MooseX::ClassAttribute::VERSION = '0.27';
 }
 
 use strict;
 use warnings;
 
-use Moose 1.23 ();
+# This module doesn't really need these pragmas - this is just for the benefit
+# of prereq scanning.
+use namespace::clean 0.20 ();
+use namespace::autoclean 0.11 ();
+
+use Moose 2.00 ();
 use Moose::Exporter;
 use Moose::Util;
 use MooseX::ClassAttribute::Trait::Class;
@@ -29,21 +34,29 @@ Moose::Exporter->setup_import_methods(
 );
 
 sub class_has {
-    my $meta    = shift;
-    my $name    = shift;
+    my $meta = shift;
+    my $name = shift;
 
     my $attrs = ref $name eq 'ARRAY' ? $name : [$name];
 
-    my %options = ( definition_context => Moose::Util::_caller_info(), @_ );
+    my %options = ( definition_context => _caller_info(), @_ );
 
     $meta->add_class_attribute( $_, %options ) for @{$attrs};
+}
+
+# Copied from Moose::Util in 2.06
+sub _caller_info {
+    my $level = @_ ? ( $_[0] + 1 ) : 2;
+    my %info;
+    @info{qw(package file line)} = caller($level);
+    return \%info;
 }
 
 1;
 
 # ABSTRACT: Declare class attributes Moose-style
 
-
+__END__
 
 =pod
 
@@ -53,7 +66,7 @@ MooseX::ClassAttribute - Declare class attributes Moose-style
 
 =head1 VERSION
 
-version 0.26
+version 0.27
 
 =head1 SYNOPSIS
 
@@ -157,14 +170,10 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2011 by Dave Rolsky.
+This software is Copyright (c) 2013 by Dave Rolsky.
 
 This is free software, licensed under:
 
   The Artistic License 2.0 (GPL Compatible)
 
 =cut
-
-
-__END__
-

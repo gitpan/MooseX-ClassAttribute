@@ -1,6 +1,6 @@
 package MooseX::ClassAttribute::Trait::Role;
-BEGIN {
-  $MooseX::ClassAttribute::Trait::Role::VERSION = '0.26';
+{
+  $MooseX::ClassAttribute::Trait::Role::VERSION = '0.27';
 }
 
 use strict;
@@ -42,7 +42,7 @@ sub composition_class_roles {
 
 # ABSTRACT: A trait for roles with class attributes
 
-
+__END__
 
 =pod
 
@@ -52,7 +52,7 @@ MooseX::ClassAttribute::Trait::Role - A trait for roles with class attributes
 
 =head1 VERSION
 
-version 0.26
+version 0.27
 
 =head1 SYNOPSIS
 
@@ -101,14 +101,10 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2011 by Dave Rolsky.
+This software is Copyright (c) 2013 by Dave Rolsky.
 
 This is free software, licensed under:
 
   The Artistic License 2.0 (GPL Compatible)
 
 =cut
-
-
-__END__
-

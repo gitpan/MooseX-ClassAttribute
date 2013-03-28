@@ -3,10 +3,9 @@ use warnings;
 
 use Test::More;
 
-use Test::Requires {
+use Test::Requires 0.05 {
     'MooseX::AttributeHelpers' => 0.23,
 };
-
 
 {
     package MyClass;
@@ -15,12 +14,13 @@ use Test::Requires {
     use MooseX::ClassAttribute;
     use MooseX::AttributeHelpers;
 
-    class_has counter =>
-        ( metaclass => 'Counter',
-          is        => 'ro',
-          provides  => { inc => 'inc_counter',
-                       },
-        );
+    class_has counter => (
+        metaclass => 'Counter',
+        is        => 'ro',
+        provides  => {
+            inc => 'inc_counter',
+        },
+    );
 }
 
 is( MyClass->counter(), 0 );

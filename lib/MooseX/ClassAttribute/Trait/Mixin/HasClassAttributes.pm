@@ -1,6 +1,6 @@
 package MooseX::ClassAttribute::Trait::Mixin::HasClassAttributes;
-BEGIN {
-  $MooseX::ClassAttribute::Trait::Mixin::HasClassAttributes::VERSION = '0.26';
+{
+  $MooseX::ClassAttribute::Trait::Mixin::HasClassAttributes::VERSION = '0.27';
 }
 
 use strict;
@@ -79,7 +79,7 @@ sub remove_class_attribute {
 
 # ABSTRACT: A mixin trait for things which have class attributes
 
-
+__END__
 
 =pod
 
@@ -89,7 +89,7 @@ MooseX::ClassAttribute::Trait::Mixin::HasClassAttributes - A mixin trait for thi
 
 =head1 VERSION
 
-version 0.26
+version 0.27
 
 =head1 DESCRIPTION
 
@@ -109,14 +109,10 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2011 by Dave Rolsky.
+This software is Copyright (c) 2013 by Dave Rolsky.
 
 This is free software, licensed under:
 
   The Artistic License 2.0 (GPL Compatible)
 
 =cut
-
-
-__END__
-
